@@ -367,6 +367,13 @@ blockquote {
     background-color: #01a532;
     color: #fff;
 }
+.btn-blue {
+    background-color: #0541fb;
+    color: #fff;
+}
+.btn-blue:focus {
+    outline: none;
+}
 .btn-green:focus {
     outline: none;
 }
@@ -504,14 +511,26 @@ textarea {
     background-color: #f8f8f8;
 }
 #answer-box {
+    display: none;  
+}
+#comment-box {
     display: none;
-    
 }
 .answer-box {
     background-color: #fff;
     margin-top: 1rem;
     padding: 1rem;
 
+}
+.comment-box {
+    margin-left: 5rem;
+    background-color: #fff;
+    margin-top: 1rem;
+    padding: 1rem;  
+}
+.comment-content {
+    margin-left: 5rem;
+    color: #6b4907;  
 }
 .answer-input {
     width: 100%;
@@ -623,9 +642,9 @@ label {
 /* .answer-count {
     border-bottom: 1px solid #bbb;
 } */
-.answer-block {
+/* .answer-block {
     border-bottom: 1px solid #bbb; 
-}
+} */
 .answer-text {
     position: relative;
     margin: 10px 0;

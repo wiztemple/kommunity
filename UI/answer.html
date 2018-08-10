@@ -47,7 +47,7 @@
                     <nav class="nav__items nav__items-right">
                         <div class="navbar__nav pr-0">
                             <a href="#">
-                                <button type="button" class="btn" id="logoutBtn"> <i class="fa fa-power-off"></i></button>
+                                <button type="button" class="btn btn-colorless ripple" id="logoutBtn"> <i class="fa fa-power-off"></i></button>
                             </a>   
                         </div>
                     </nav>
@@ -88,7 +88,7 @@
                                 <div class="card-reaction justify-content-space-between">
                                   <div class="card-answer">
                                         <div class="text-grey mb-1">63 Answers <span><small>Posted 2 hrs ago.</small></span></div>
-                                        <div class="card-btn ripple" id="cardBtn"> <i class="fa fa-edit"> Answer</i>
+                                        <div class="card-btn ripple" id="cardBtn"> <i class="fa fa-pencil"> Answer</i>
                                         </div>
                                   </div>
                                 </div>
@@ -133,62 +133,28 @@
                                             </div>
                                         </div>
                                         <div class="card-views pl-1">
-                                            <div class="card-reaction-icons"><i class="fa fa-comments-o"></i> Comment
+                                            <div class="card-reaction-icons" id="commentTag"><i class="fa fa-comments-o"></i> Comment
                                             </div> 
                                         </div> 
                                     </div>
-                                        <div class="answer-box">
+                                        <div class="comment-box" id="comment-box">
                                             <div class="justify-content-start">
                                                 <div>
                                                     <img src="./assets/images/girl.png" class="avatar">
                                                 </div>
                                                 <div class="ml-1 answer-input">
-                                                    <textarea class="box" placeholder="Answer"></textarea>
-                                                    <button class="button ripple" type="button">Post</button>
+                                                    <textarea class="box" placeholder="post comment"></textarea>
+                                                    <button class="btn btn-blue ripple" type="button">Post</button>
                                                 </div>
                                             </div>
                                         </div><!--end answer-box -->
+                                        <div class="comment-content">
+                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt mollitia eos nisi maiores praesentium quibusdam, minus error non neque velit nam sed voluptatibus similique harum dolores? Voluptatem sit iure quo!</p>
+                                        </div>
                                 </div>
                               
                             </div>
-                            <div class="mt-1 answer-block py-1">
-                                <div class="justify-content-start">
-                                    <div class="card-user">
-                                        <img class="avatar" src="./assets/images/boy.png">
-                                    </div>
-                                    <div class="card-user__job flex">
-                                        <span class="pl-2">Lorem ipsum dolor sit amet.</span>
-                                        <span> 
-                                            <small class="text-grey">Answered 1 minute ago</small>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="answer-text">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi consectetur nobis consequatur numquam reiciendis necessitatibus accusamus dolore, dolor laborum enim corrupti et vel praesentium similique eveniet iste dicta dolorem! Repellendus.</p>
-                                </div>
-                                <div>
-                                    <div class="justify-content-start">
-                                        <div class="card-upvote">
-                                            <div class="card-btn"> <i class="fa fa-thumbs-up"></i>
-                                            </div>
-                                        </div>
-                                        <div class="card-downvote pl-1">
-                                            <div class="card-btn"><i class="fa fa-thumbs-down"></i>
-                                            </div>
-                                        </div>
-                                        <div class="card-views pl-1">
-                                            <div class="card-btn"><i class="fa fa-comment"></i>
-                                            </div>
-                                        </div> 
-                                    </div>
-                                </div>
-                                <div class="pt-2">
-                                    <div>
-                                        <input type="text" class="form-control" placeholder="Add a comment">
-                                    </div>
-                                    <button type="button" class="btn mt-1">Comment</button>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
