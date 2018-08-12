@@ -11,6 +11,8 @@ body{
     padding: 0;
     margin: 0;
     font-family: 'Ubuntu', sans-serif;
+    font-kerning: normal;
+    font-weight: 100 !important;
     background: #f2f2f2;
 }
 body::-webkit-scrollbar {
