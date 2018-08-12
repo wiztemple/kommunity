@@ -1,13 +1,16 @@
 
 @import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  
 }
 body{
     padding: 0;
     margin: 0;
+    font-family: 'Ubuntu', sans-serif;
     background: #f2f2f2;
 }
 body::-webkit-scrollbar {
@@ -62,7 +65,6 @@ a {
     -ms-flex: 0 0 8.333333%;
     flex: 0 0 8.333333%;
     max-width: 8.333333%;
-    background: red;
 }
   
   .col-2 {
@@ -129,6 +131,70 @@ a {
 flex: 0 0 100%;
 max-width: 100%;
 }
+/*navbar*/
+.navbar {
+    background-color:#fff;
+    /* padding: 10px; */
+    color: #fff;
+    height: 60px;
+    box-shadow: 0 0.5px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;
+}
+.navbar > .shelter {
+    display: flex;
+}
+.navbar > .epic-shelter {
+    display: flex;
+}
+.navbar__nav{
+    padding: 10px;
+}
+.nav__items{
+    display: flex;
+}
+.nav__items-right{
+    margin-left: auto;
+}
+.navbar__nav-toggle{
+    display: none;
+    color: #0541fb;
+}
+
+.nav__logo{
+padding: 0.7rem 0rem !important;
+font-family: 'Fredericka the Great', cursive;
+font-size: 25px !important;
+color:#0541fb !important;
+ }
+ .nav__link{
+    padding: 0.6rem 1rem;
+    position: relative;
+    display: flex;
+    justify-content:center;
+    align-content: center;
+    align-self: center;
+    align-items: center;
+    color:#0541fb;
+    text-decoration: none;
+
+}
+.nav__link::after{
+    position: absolute;
+    content: '';
+    bottom: -0.8rem;
+    width:100%;
+    border-bottom: 4px solid transparent;
+}
+.active::after{
+    position: absolute;
+    content: '';
+    bottom: -0.8rem;
+    width:100%;
+    border-bottom: 4px solid #0541fb; 
+}
+.nav__link:hover::after{
+    border-bottom-color:#0541fb;
+    transition: border-bottom-color ease-in-out 0.3s;
+}
 /*  */
 @media (max-width: 575.98px) {
   .shelter {
@@ -155,7 +221,7 @@ max-width: 100%;
 }
 }
 /* Small devices (landscape phones, less than 768px) */
-@media (max-width: 768px) { 
+@media only screen and (max-width: 768px) { 
     .nav__items, .navbar > .shelter {
         flex-direction: column;
     }
@@ -207,70 +273,7 @@ max-width: 100%;
     max-width: 1140px;
   }
 }
-/*navbar*/
-.navbar {
-    background-color:#fff;
-    /* padding: 10px; */
-    color: #fff;
-    height: 60px;
-    box-shadow: 0 0.5px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;
-}
-.navbar > .shelter {
-    display: flex;
-}
-.navbar > .epic-shelter {
-    display: flex;
-}
-.navbar__nav{
-    padding: 10px;
-}
-.nav__items{
-    display: flex;
-}
-.nav__items-right{
-    margin-left: auto;
-}
-.navbar__nav-toggle{
-    display: none;
-    color: #0541fb;
-}
 
-.nav__logo{
-padding: 0.7rem 0rem !important;
-font-family: 'Fredericka the Great', cursive;
-font-size: 25px !important;
-color:#0541fb !important;
- }
- .nav__link{
-    padding: 0.8rem 1rem;
-    position: relative;
-    display: flex;
-    justify-content:center;
-    align-content: center;
-    align-self: center;
-    align-items: center;
-    color:#0541fb;
-    text-decoration: none;
-
-}
-.nav__link::after{
-    position: absolute;
-    content: '';
-    bottom: -0.6rem;
-    width:100%;
-    border-bottom: 3px solid transparent;
-}
-.active::after{
-    position: absolute;
-    content: '';
-    bottom: -0.6rem;
-    width:100%;
-    border-bottom: 3px solid #0541fb; 
-}
-.nav__link:hover::after{
-    border-bottom-color:#0541fb;
-    transition: border-bottom-color ease-in-out 0.3s;
-}
 /*header, banner*/
 /* .banner {
     height: 500px !important;
@@ -354,7 +357,7 @@ blockquote {
     border: 1px solid transparent;
     padding: .375rem .75rem;
     font-size: 1rem;
-    font-family: 'Maven Pro', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     line-height: 1.5;
     border-radius: .25rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
@@ -391,6 +394,7 @@ blockquote {
 .button {
     height: 40px;
     width:150px;
+    font-family: 'Ubuntu', sans-serif;
     background-color: #0541fb;
     color: #fff;
     border: none;
@@ -510,10 +514,10 @@ textarea {
     border-radius: 4px;
     background-color: #f8f8f8;
 }
-#answer-box {
+#answerBox {
     display: none;  
 }
-#comment-box {
+#commentBox {
     display: none;
 }
 .answer-box {
@@ -839,9 +843,8 @@ border-radius: 50%;
     to {opacity: 1;}
 }
 .footer {
-    padding: 20px;
-    background: #fff;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+    padding: 10px;
+    background: #f1f1f1;
 }
 .facebook {
     color: #3b5999;
