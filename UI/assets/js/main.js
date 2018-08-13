@@ -24,8 +24,8 @@ function closeModal() {
 }
 function navToggle() {
     const navs = document.querySelector('.nav__items');
-    console.log(navs);
     navs.forEach(nav => nav.classList.add('navbar__toggleShow')); 
+    console.log(navs);
 }
 function dropAnswerBox() {
     const answerBox = document.getElementById('answerBox');
