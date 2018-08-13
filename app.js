@@ -1,5 +1,6 @@
 import express from 'express';
 import logger from 'volleyball';
+import appRoute from './server/routes/appRoutes';
 
 const app = express();
 
@@ -14,6 +15,8 @@ app.get('/', (_request, response) => response.status(200).json({
   status: 'success',
   message: 'Welcome to Kommunity, a platform to ask questions and answer questions',
 }));
+
+app.use('/api/v1/questions', appRoute);
 
 app.listen(port, () => {
   // eslint-disable-next-line
