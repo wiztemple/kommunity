@@ -1,6 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great');
-@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@import url('https://fonts.googleapis.com/css?family=Sunflower:300');
 *,
 *::before,
 *::after {
@@ -10,9 +10,8 @@
 body{
     padding: 0;
     margin: 0;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Sunflower', sans-serif;
     font-kerning: normal;
-    font-weight: 100 !important;
     background: #f2f2f2;
 }
 body::-webkit-scrollbar {
@@ -148,7 +147,7 @@ max-width: 100%;
     display: flex;
 }
 .navbar__nav{
-    padding: 10px;
+    padding: 1px 0px;
 }
 .nav__items{
     display: flex;
@@ -162,41 +161,45 @@ max-width: 100%;
 }
 
 .nav__logo{
-padding: 0.7rem 0rem !important;
+padding: 0.8rem 01rem !important;
 font-family: 'Fredericka the Great', cursive;
 font-size: 25px !important;
 color:#0541fb !important;
  }
  .nav__link{
-    padding: 0.6rem 1rem;
+    padding: 1.23rem 1rem;
     position: relative;
     display: flex;
     justify-content:center;
     align-content: center;
     align-self: center;
     align-items: center;
-    color:#0541fb;
+    color:#616770;
     text-decoration: none;
 
+}
+.nav__link:hover {
+    background: #f1f1f1;
+    color: #0541fb;
+    transition: all 0.2s ease-in;
 }
 .nav__link::after{
     position: absolute;
     content: '';
-    bottom: -0.8rem;
+    bottom: 0;
     width:100%;
-    border-bottom: 4px solid transparent;
 }
 .active::after{
     position: absolute;
     content: '';
-    bottom: -0.8rem;
+    bottom: 0;
     width:100%;
-    border-bottom: 4px solid #0541fb; 
+    border-bottom: 3px solid #0541fb; 
 }
-.nav__link:hover::after{
+/* .nav__link:hover::after{
     border-bottom-color:#0541fb;
     transition: border-bottom-color ease-in-out 0.3s;
-}
+} */
 /*  */
 @media (max-width: 575.98px) {
   .shelter {
@@ -359,7 +362,7 @@ blockquote {
     border: 1px solid transparent;
     padding: .375rem .75rem;
     font-size: 1rem;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Sunflower', sans-serif;
     line-height: 1.5;
     border-radius: .25rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
@@ -375,6 +378,8 @@ blockquote {
 .btn-blue {
     background-color: #0541fb;
     color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15)
 }
 .btn-blue:focus {
     outline: none;
@@ -394,7 +399,7 @@ blockquote {
     outline: none;
 }
 .button {
-    height: 40px;
+    height: 38px;
     width:150px;
     font-family: 'Ubuntu', sans-serif;
     background-color: #0541fb;
@@ -679,6 +684,9 @@ border-radius: 50%;
 }
 /*utilities*/
 /*padding*/
+.p__8 {
+    padding: 0.7rem;
+}
 .p-1 {
     padding: 1rem;
 }
