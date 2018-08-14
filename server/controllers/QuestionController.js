@@ -37,6 +37,33 @@ export default class QuestionController {
       message: 'no question with such id',
     });
   }
+
+
+  /**
+   * @static method to create a question
+   * @param {object} request - request object
+   * @param {object} response - response object
+   */
+  static postQuestion(request, response) {
+    const { userId, topic, questionBody } = request.body;
+    const checkUser = questions.find(el => el.topic === topic && el.userId === userId);
+    if (checkUser) {
+      return response.status(409).json({
+        status: 'fail',
+        message: 'question already exists',
+      });
+    }
+    const id = questions[questions.length - 1].id + 1;
+    const data = {
+      id, userId, topic, questionBody,
+    };
+    questions.push(data);
+    return response.status(201).json({
+      status: 'success',
+      message: 'new question added',
+    });
+  }
+
   /**
    * @static method to edit a question
    * @param {object} request - request object
