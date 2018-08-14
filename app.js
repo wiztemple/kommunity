@@ -1,6 +1,10 @@
 import express from 'express';
 import logger from 'volleyball';
+import dotenv from 'dotenv';
+
 import appRoute from './server/routes/appRoutes';
+
+dotenv.config();
 
 const app = express();
 

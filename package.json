@@ -8,7 +8,7 @@
     "lint": "eslint --init --fix",
     "dev": "nodemon --exec babel-node --presets babel-preset-env ./app.js",
     "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text --cache mocha server/test/*.js --exit"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,8 @@
   },
   "homepage": "https://github.com/wiztemple/kommunity#readme",
   "dependencies": {
+    "cross-env": "^5.2.0",
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "volleyball": "^1.5.1"
   },

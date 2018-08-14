@@ -6,4 +6,7 @@ const appRoute = Router();
 // get all questions
 appRoute.get('/', QuestionController.getAllQuestions);
 
+// get a question
+appRoute.get('/:questionId', QuestionController.getQuestion);
+
 export default appRoute;
