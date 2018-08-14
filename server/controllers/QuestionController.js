@@ -38,6 +38,28 @@ export default class QuestionController {
     });
   }
   /**
+   * @static method to edit a question
+   * @param {object} request - request object
+   * @param {object} response - response object
+   */
+
+  static editQuestion(request, response) {
+    const foundQuestion = questions.findIndex(question => question.id === parseInt(request.params.questionId, 10));
+    if (foundQuestion) {
+      questions[foundQuestion].userId = request.body.id;
+      questions[foundQuestion].topic = request.body.topic;
+      questions[foundQuestion].questionBody = request.body.questionBody;
+      return response.status(200).json({
+        status: 'success',
+        message: 'question was successfully edited',
+      });
+    }
+    return response.status(404).json({
+      status: 'fail',
+      message: 'question not found',
+    });
+  }
+  /**
    * @static method to delete a question
    * @param {object} request - request object
    * @param {object} response - response object

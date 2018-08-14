@@ -60,4 +60,21 @@ describe('Questions', () => {
         });
     });
   });
+  describe('edit a question', () => {
+    it('it should edit/update a specific question', (done) => {
+      chai.request(app)
+        .put('/api/v1/questions/4')
+        .send({
+          userId: 30,
+          topic: 'Pound cake by Drake and Jayz',
+          questionBody: 'lets get its started',
+        })
+        .end((error, response) => {
+          response.should.have.status(200);
+          response.should.be.an('object');
+          response.body.should.have.property('message').to.equal('question was successfully edited');
+          done();
+        });
+    });
+  });
 });
