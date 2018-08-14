@@ -9,7 +9,8 @@ appRoute.get('/', QuestionController.getAllQuestions);
 // get a question
 appRoute.get('/:questionId', QuestionController.getQuestion);
 
-// create question
-// appRoute.post('/', QuestionController.postQuestion);
+
+// delete a question
+appRoute.delete('/:questionId', QuestionController.deleteQuestion);
 
 export default appRoute;

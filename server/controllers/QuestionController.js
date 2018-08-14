@@ -37,4 +37,24 @@ export default class QuestionController {
       message: 'no question with such id',
     });
   }
+  /**
+   * @static method to delete a question
+   * @param {object} request - request object
+   * @param {object} response - response object
+   */
+
+  static deleteQuestion(request, response) {
+    const foundQuestion = questions.find(question => question.id === parseInt(request.params.questionId, 10));
+    if (foundQuestion) {
+      questions.splice(request.params.questionId - 1, 1);
+      return response.status(200).json({
+        status: 'success',
+        message: 'question was successfully deleted',
+      });
+    }
+    return response.status(404).json({
+      status: 'fail',
+      message: 'question not found',
+    });
+  }
 }
