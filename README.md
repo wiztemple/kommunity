@@ -39,6 +39,22 @@ You need to have these installed before cloning the project
 ### Screenshots(App User Interface Template)
 ![alt](./screenshots/kommunity.png)
 
+### How To Install
+* _Clone from github_
+
+  _```git clone https://github.com/wiztemple/kommunity.git```_
+* _CD into the directory_
+  _```cd kommunity```_
+* _Install dependencies_
+  _```npm install```_
+
+
+### How To Run
+  * _```npm run dev```_
+
+### How To Test
+  * _```npm test```_
+
 ## Acknowledgments
 :clap: :clap: :clap: :clap: :+1: :+1:
 * [Andela](http://andela.com) 
