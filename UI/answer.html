@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Kommunity</title>
+  <link rel="icon" href="./assets/images/chatting.png" type="image/gif" sizes="16x16">
+  <link rel="stylesheet" href="./assets/css/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./assets/css/app.css">
+</head>
+<body>
+    <div class="app">
+        <div class="header" id="header">
+            <div class="navbar fixed-top" id="navbar">
+                <div class="shelter">
+                    <a class="navbar__nav nav__logo nav__underline" href="index.html">
+                    <span class="link-title"><i class="fa fa-mars"></i>
+                        <span>K</span>ommunity
+                    </span> 
+                    </a>
+                    <div class="navbar__nav navbar__nav-toggle">
+                        <i class="fa fa-bars"></i>
+                    </div>
+                    <nav class="nav__items">
+                        <div class="navbar__nav nav__underline">
+                            <a href="index.html" class="nav__link">
+                                Home
+                            </a>
+                            
+                        </div>
+                        <div class="navbar__nav nav__underline">
+                            <a href="answer.html" class="nav__link active">
+                                Answer
+                            </a>
+                            
+                        </div>
+                        <div class="navbar__nav nav__underline p__8">
+                        <div class="search">
+                            <input class="form-control" type="text" placeholder="Search for Questions">
+                        </div>
+                        </div>
+                        <div class="navbar__nav nav__underline p__8">
+                                <button type="button" class="btn btn-blue ripple" id="questionBtn">Ask a Question <i class="fa fa-plus"></i></button>
+                        </div>
+                    </nav>
+                    <nav class="nav__items nav__items-right">
+                        <div class="navbar__nav pr-0 p__8">
+                            <a href="#">
+                                <button type="button" class="btn btn-colorless ripple" id="logoutBtn"> <i class="fa fa-power-off"></i></button>
+                            </a>   
+                        </div>
+                    </nav>
+                </div><!--end container-->
+            </div><!--end navbar-->
+        </div><!--end header-->
+        <section class="py-3">
+            <div class="shelter">
+                <div class="ddd mt-2">
+                    <div class="columns">
+                        <div class="col-7">
+                            <div class="answer mb-2">
+                                <h2 class="answer-title">What is the best use of span in HTML?</h2>
+                               
+                            </div>
+                           
+                            <div class="card p-1">
+                                <div class="card-question">
+                                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, accusamus?</span>
+                                </div>
+                                <div class="justify-content-start">
+                                    <div class="card-user">
+                                        <img class="avatar" src="./assets/images/girl.png">
+                                    </div>
+                                    <div class="card-user__job flex">
+                                        <span class="pl-2">Lorem ipsum dolor sit amet.</span>
+                                        <span> 
+                                            <small class="text-grey">1 minute ago</small>
+                                            <small class="text-grey">07-08-2018</small>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card-description">
+                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, rem. Exercitationem libero quam esse ipsam quos rem ut nostrum aperiam?
+                                    <a href="#" class="card-description__link">Read more <i class="fa fa-angle-double-right"></i></a>
+                                    </p>
+                                </div>
+                                <div class="card-reaction justify-content-space-between">
+                                  <div class="card-answer">
+                                        <div class="text-grey mb-1">63 Answers <span><small>Posted 2 hrs ago.</small></span></div>
+                                        <div class="card-btn ripple" id="cardBtn"> <i class="fa fa-pencil"> Answer</i>
+                                        </div>
+                                  </div>
+                                </div>
+                                <div class="answer-box" id="answerBox">
+                                    <div class="justify-content-start">
+                                        <div>
+                                            <img src="./assets/images/girl.png" class="avatar">
+                                        </div>
+                                        <div class="ml-1 answer-input">
+                                            <textarea class="box" placeholder="Answer"></textarea>
+                                            <button class="button ripple" type="button">Post</button>
+                                        </div>
+                                    </div>
+                                </div><!--end answer-box -->
+                            </div>
+                            <div class="answer-count">
+                                <h1>2 Answers</h1>
+                            </div>
+                            <div class="mt-1 answer-block py-1">
+                                <div class="justify-content-start">
+                                    <div class="card-user">
+                                        <img class="avatar" src="./assets/images/girl.png">
+                                    </div>
+                                    <div class="card-user__job flex">
+                                        <span class="pl-2">Lorem ipsum dolor sit amet.</span>
+                                        <span> 
+                                            <small class="text-grey">Answered 1 minute ago</small>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="answer-text">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi consectetur nobis consequatur numquam reiciendis necessitatibus accusamus dolore, dolor laborum enim corrupti et vel praesentium similique eveniet iste dicta dolorem! Repellendus.</p>
+                                </div>
+                                <div>
+                                    <div class="justify-content-start">
+                                        <div class="card-upvote">
+                                            <div class="card-reaction-icons"> <i class="fa fa-thumbs-up"></i> Like
+                                            </div>
+                                        </div>
+                                        <div class="card-downvote pl-1">
+                                            <div class="card-reaction-icons"><i class="fa fa-thumbs-down"></i> Dislike
+                                            </div>
+                                        </div>
+                                        <div class="card-views pl-1">
+                                            <div class="card-reaction-icons" id="commentTag"><i class="fa fa-comments-o"></i> Comment
+                                            </div> 
+                                        </div> 
+                                    </div>
+                                        <div class="comment-box" id="commentBox">
+                                            <div class="justify-content-start">
+                                                <div>
+                                                    <img src="./assets/images/girl.png" class="avatar">
+                                                </div>
+                                                <div class="ml-1 answer-input">
+                                                    <textarea class="box" placeholder="post comment"></textarea>
+                                                    <button class="btn btn-blue ripple" type="button">Post</button>
+                                                </div>
+                                            </div>
+                                        </div><!--end answer-box -->
+                                        <div class="comment-content">
+                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt mollitia eos nisi maiores praesentium quibusdam, minus error non neque velit nam sed voluptatibus similique harum dolores? Voluptatem sit iure quo!</p>
+                                        </div>
+                                </div>
+                              
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="footer">
+                <p class="text-center">Ukaegbu Sullivan Wisdom...Cycle 35 &copy; 2018</p>
+            </div>
+        </section>
+    </div>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
