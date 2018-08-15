@@ -8,17 +8,17 @@
 kommunity is a platform where people can ask questions and provide answers. A light weight StackOverflow with a Quora feel. :speech_balloon: :thought_balloon: :man: :woman: :boy: :girl: :pencil2:
 
 ## Features
-* Users can create an account and log in
-* Users can post questions
-* Users can delete the questions they post
-* Users can post answers
-* Users can view answers to questions
-* Users can accept an answer out of all the answers to his/her question as the preferred answer
-* Users can upvote or downvote an answer
-* Users can comment on an answer
-* Users can fetch all questions he/she has ever asked on the platform
-* Users can search for questions on the platform
-* Users can view questions with the most answers
+* Users can create an account and log in :bust_in_silhouette: :busts_in_silhouette: 
+* Users can post questions :outbox_tray:
+* Users can delete the questions they post :x:
+* Users can post answers :pencil: :outbox_tray:
+* Users can view answers to questions :neutral_face: :eyes:
+* Users can accept an answer out of all the answers to his/her question as the preferred answer :point_right: :heavy_check_mark:
+* Users can upvote or downvote an answer :+1: :-1:
+* Users can comment on an answer :speech_balloon:
+* Users can fetch all questions he/she has ever asked on the platform :date:
+* Users can search for questions on the platform :mag: :mag_right:
+* Users can view questions with the most answers :eyes:
 
 ## Getting Started
 Instructions to get the project running successfully on your terminal
@@ -34,18 +34,19 @@ You need to have these installed before cloning the project
 * Chai
 
 ## Style Guide
-* [BEM — Block Element Modifier](http://getbem.com/introduction/).
-* [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript/).
+ :smile: [BEM — Block Element Modifier](http://getbem.com/introduction/)
+
+ :smile: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript/)
+
 ### Screenshots(App User Interface Template)
 ![alt](./screenshots/kommunity.png)
 
 ### How To Install
-* _Clone from github_
+* Clone from github
 
-  _```git clone https://github.com/wiztemple/kommunity.git```_
-* _CD into the directory_
+ _```git clone https://github.com/wiztemple/kommunity.git```_
   _```cd kommunity```_
-* _Install dependencies_
+* Install dependencies
   _```npm install```_
 
 
@@ -56,7 +57,7 @@ You need to have these installed before cloning the project
   * _```npm test```_
 
 ## Acknowledgments
-:clap: :clap: :clap: :clap: :+1: :+1:
+:clap: :clap: :clap: :clap: :+1: :+1: :smile:
 * [Andela](http://andela.com) 
 * [Stackoverflow](stackoverflow.com)
 * [Medium](https://medium.com/@meakaakka/a-beginners-guide-to-writing-a-kickass-readme-7ac01da88ab3)
