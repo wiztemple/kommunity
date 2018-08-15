@@ -169,4 +169,62 @@ describe('Questions', () => {
         });
     });
   });
+  describe('create answer', () => {
+    it('it should provide answer to a question', (done) => {
+      chai.request(app)
+        .post('/api/v1/questions/2/answer')
+        .send({
+          userId: 3,
+          questionId: 6,
+          answerBody: 'Lets get it started',
+        })
+        .end((error, response) => {
+          response.should.have.status(201);
+          response.should.be.an('object');
+          response.body.should.have.property('message').to.equal('new answer added');
+          done();
+        });
+    });
+    it('it should not create answer when the question does not exist', (done) => {
+      chai.request(app)
+        .post('/api/v1/questions/8/answer')
+        .send({
+          userId: 3,
+          answerBody: 'Lets get it started',
+        })
+        .end((error, response) => {
+          response.should.have.status(404);
+          response.should.be.an('object');
+          response.body.should.have.property('message').to.equal('question not found');
+          done();
+        });
+    });
+    it('it should not create answer if the user id does not exist', (done) => {
+      chai.request(app)
+        .post('/api/v1/questions/5/answer')
+        .send({
+          answerBody: 'Lets get it started',
+        })
+        .end((error, response) => {
+          response.should.have.status(400);
+          response.should.be.an('object');
+          response.body.should.have.property('message').to.equal('userId must be provided');
+          done();
+        });
+    });
+    it('it should not create answer if answer field is empty', (done) => {
+      chai.request(app)
+        .post('/api/v1/questions/3/answer')
+        .send({
+          userId: 2,
+          answerBody: '',
+        })
+        .end((error, response) => {
+          response.should.have.status(400);
+          response.should.be.an('object');
+          response.body.should.have.property('message').to.equal('answer field cannot be empty');
+          done();
+        });
+    });
+  });
 });

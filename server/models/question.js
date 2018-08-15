@@ -18,6 +18,7 @@ const questions = [
     userId: 1,
     topic: 'JavaScript',
     questionBody: 'const and let, why should I neglect var?',
+    answer: [],
     created_at: new Date(),
   },
   {
@@ -25,6 +26,7 @@ const questions = [
     userId: 2,
     topic: 'Python',
     questionBody: 'OOP in Python and Java? which is more easier?',
+    answer: [],
     created_at: new Date(),
   },
   {
@@ -32,6 +34,7 @@ const questions = [
     userId: 4,
     topic: 'Haskell',
     questionBody: 'What is the best use of haskell',
+    answer: [],
     created_at: new Date(),
   },
   {
@@ -39,6 +42,7 @@ const questions = [
     userId: 6,
     topic: 'CSS',
     questionBody: 'what ?',
+    answer: [],
     created_at: new Date(),
   },
 ];
