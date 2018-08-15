@@ -29,4 +29,21 @@ export default class Validate {
     }
     return next();
   }
+
+  static checkAnswer(request, response, next) {
+    const { userId, answerBody } = request.body;
+    if (!userId || userId === '' || userId === undefined) {
+      return response.status(400).json({
+        status: 'fail',
+        message: 'userId must be provided',
+      });
+    }
+    if (!answerBody || answerBody === '' || answerBody === undefined) {
+      return response.status(400).json({
+        status: 'fail',
+        message: 'answer field cannot be empty',
+      });
+    }
+    return next();
+  }
 }

@@ -1,4 +1,5 @@
 import db from '../models/index';
+import questions from '../models/question';
 
 const { answers } = db;
 
@@ -9,22 +10,25 @@ export default class AnswerController {
    * @param {object} response - response object
    */
   static postAnswer(request, response) {
-    const { userId, questionId, answerBody, upvote, downvote, comment } = request.body;
-    const checkUser = answers.find(el => el.topic === topic && el.userId === userId);
-    if (checkUser) {
-      return response.status(409).json({
-        status: 'fail',
-        message: 'question already exists',
+    const {
+      userId, answerBody,
+    } = request.body;
+    const questionExists = questions.find(question => question.id === parseInt(request.params.questionId, 10));
+    if (questionExists) {
+      const id = answers[answers.length - 1].id + 1;
+      const data = {
+        id, userId, answerBody,
+      };
+      answers.push(data);
+      return response.status(201).json({
+        status: 'success',
+        message: 'new answer added',
+        answer: data,
       });
     }
-    const id = answers[answers.length - 1].id + 1;
-    const data = {
-      id, userId, topic, questionBody,
-    };
-    questions.push(data);
-    return response.status(201).json({
-      status: 'success',
-      message: 'new question added',
+    return response.status(404).json({
+      status: 'fail',
+      message: 'question not found',
     });
   }
 }

@@ -1,5 +1,4 @@
 import db from '../models/index';
-import answers from '../models/answer';
 
 const { questions } = db;
 /**
@@ -105,22 +104,6 @@ export default class QuestionController {
     return response.status(404).json({
       status: 'fail',
       message: 'question not found',
-    });
-  }
-
-  static postAnswer(request, response) {
-    const foundQuestion = questions.find(question => question.id === parseInt(request.params.questionId, 10));
-    if (foundQuestion) {
-      const { userId, questionId, answerBody } = request.body;
-      const id = answers[answers.length - 1].id + 1;
-      const data = {
-        id, userId, questionId, answerBody,
-      };
-      questions.push(data);
-    }
-    return response.status(404).json({
-      status: 'fail',
-      message: 'no question with such id',
     });
   }
 }
