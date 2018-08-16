@@ -13,6 +13,9 @@ script:
   - npm test
 
 after_script:
+  cache:
+  directories:
+    - "node_modules"
   - npm run coverage
   - npm run coveralls
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
