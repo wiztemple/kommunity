@@ -21,18 +21,31 @@ kommunity is a platform where people can ask questions and provide answers. A li
 * Users can search for questions on the platform :mag: :mag_right:
 * Users can view questions with the most answers :eyes:
 
+
+## Endpoints
+| Request | Endpoint | Action |
+| ------- | -------- | ------ |
+| `POST` | _/api/v1/questions_ | Create question
+| `GET`  | _/api/v1/questions_ | Get all questions
+| `GET`  | _/api/v1/questions/:id_ | Get a single question
+| `PUT`  | _/api/v1/questions/:id_ | Edit a question
+| `POST` | _/api/v1/questions/:id/answer_ | Post answer to a question
+| `DELETE` | _/api/v1/questions/:id_ | Delete a question
+
+
 ## Getting Started
 Instructions to get the project running successfully on your terminal
 
 ### Prerequisites
 You need to have these installed before cloning the project
-* _[NodeJS](https://nodejs.org/en/download/)_
+* [Nodejs](https://nodejs.org/en/download/)
 
 ### Technologies Used
-* NodeJS
-* Express
-* Mocha
-* Chai
+* [NodeJS](https://nodejs.org)
+* [Express](https://expressjs.com)
+* [Mocha](https://mochajs.org)
+* [Chai](www.chaijs.com)
+* [istanbul](https://istanbul.js.org)
 
 ## Style Guide
  :smile: [BEM — Block Element Modifier](http://getbem.com/introduction/)
@@ -56,6 +69,9 @@ You need to have these installed before cloning the project
 
 ### How To Test
   * _```npm test```_
+
+### Test the endpoints hosted on Heroku
+  * [https://kommunity-app.herokuapp.com](https://kommunity-app.herokuapp.com)
 
 ## Acknowledgments
 :clap: :clap: :clap: :clap: :+1: :+1: :smile:
