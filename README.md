@@ -5,6 +5,9 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/0d6d7f87376a3d79a7cf/test_coverage)](https://codeclimate.com/github/wiztemple/kommunity/test_coverage)
 
 
+![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
+
+
 # Kommunity
 kommunity is a platform where people can ask questions and provide answers. A light weight StackOverflow with a Quora feel. :speech_balloon: :thought_balloon: :man: :woman: :boy: :girl: :pencil2:
 
