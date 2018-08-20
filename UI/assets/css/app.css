@@ -228,7 +228,9 @@ color:#0541fb !important;
 /* Small devices (landscape phones, less than 768px) */
 @media only screen and (max-width: 768px) { 
     .nav__items, .navbar > .shelter {
+        width: 100%;
         flex-direction: column;
+        background-color: #0541fb;
     }
     .nav__items{
         display: none;
@@ -240,8 +242,14 @@ color:#0541fb !important;
     .nav__items-right{
         margin-left:0;
     }
+    .nav__logo{
+        padding: 0.8rem 01rem !important;
+        font-family: 'Fredericka the Great', cursive;
+        font-size: 25px !important;
+        color:#fff !important;
+     }
     .navbar__nav-toggle{
-        color:#0541fb !important;
+        color:#fff !important;
         padding: 1.3rem 0.5rem !important;
         align-self: flex-end;
         display: initial;
@@ -250,15 +258,28 @@ color:#0541fb !important;
     }
     .nav__link {
         margin-bottom: 15px !important;
-        padding: 0rem 1rem !important;
+        padding: 1rem 1rem !important;
         position: relative !important;
         display: flex !important;
-        justify-content:start !important;
+        justify-content:center !important;
         align-content: center !important;
         align-self: center !important;
         align-items: center !important;
-        color: #175cf2 !important;
+        color: #fff !important;
         text-decoration: none !important;
+    }
+    .nav__link::after{
+        position: absolute;
+        content: '';
+        bottom: -10px;
+        width:100%;
+    }
+    .active::after{
+        position: absolute;
+        content: '';
+        bottom: -10px;
+        width:100%;
+        border-bottom: 3px solid #fff; 
     }
 }
 
@@ -470,8 +491,11 @@ blockquote {
     border-radius: 10px;
 }
 .avatar-sm {
-    height: 30px;
-    width: 30px;
+    padding: 6px;
+    height: 40px;
+    width: 40px;
+    background-color: #ccc;
+    border-radius: 50%;
 }
  /* .side-link:hover {
      
@@ -522,7 +546,8 @@ textarea {
     background-color: #f8f8f8;
 }
 #answerBox {
-    display: none;  
+    display: none;
+    
 }
 #commentBox {
     display: none;
@@ -540,8 +565,19 @@ textarea {
     padding: 1rem;  
 }
 .comment-content {
+    margin-top: 15px;
     margin-left: 5rem;
-    color: #6b4907;  
+    color: #777; 
+    background-color: #ebeef8;
+    padding:10px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius:20px;
+}
+.commenter_name{
+    color: #616770;
+    font-size: 16px;
+    margin-left: 10px;
+    margin-top: 10px;
 }
 .answer-input {
     width: 100%;
@@ -549,6 +585,7 @@ textarea {
 .answer-input > button {
     margin-top: 7px;
 }
+
 .box {
     height: 100px;
     border: 1px solid #eee;
