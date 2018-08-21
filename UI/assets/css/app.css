@@ -475,11 +475,13 @@ blockquote {
     padding: 10px 5px;
 }
 .right-card {
-    margin-top: 8px;
     padding: 1rem;
     background-color: #fff;
     /* box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4); */
     border-radius: 5px;
+}
+.right-card > span {
+    color: #0541fb;
 }
 .top-contributor {
     display: flex;
@@ -648,9 +650,13 @@ label {
     /* box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15); */
     transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-.card-question > span {
+
+.card-question > a {
     font-size: 20px;
     color: #0541fb;
+}
+.card-question > a:hover {
+    color: #55acee;
 }
 .card-description {
     color:#616770;
@@ -658,6 +664,12 @@ label {
 }
 .card-description__link {
     color:#0541fb;
+}
+.carded {
+    color: #0541fb;
+    font-size: 18px;
+    background-color: #fff;
+    border-radius: 5px;
 }
 .form-card {
     padding: 1rem;
@@ -718,6 +730,28 @@ label {
 height: 50px;
 width: 50px;
 border-radius: 50%;
+}
+/*pagination*/
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination a.activve {
+    background-color: #0541fb;
+    color: white;
+    border-radius: 5px;
+}
+
+.pagination a:hover:not(.activve) {
+    background-color: #ddd;
+    border-radius: 5px;
 }
 /*utilities*/
 /*padding*/
