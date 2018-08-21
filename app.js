@@ -21,7 +21,20 @@ app.get('/', (_request, response) => response.status(200).json({
 }));
 
 app.use('/api/v1/questions', appRoute);
-
+app.use((request, response, next) => {
+  const error = new Error('Not found');
+  error.status = 404;
+  next(error);
+});
+app.use((error, request, response, next) => {
+  response.status(error.status || 500);
+  response.json({
+    error: {
+      message: error.message,
+    },
+  });
+  next();
+});
 app.listen(port, () => {
   // eslint-disable-next-line
   console.log(`Kommunity is listening on port ${port}`);
