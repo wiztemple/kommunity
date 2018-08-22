@@ -9,7 +9,7 @@ const appRoute = Router();
 appRoute.get('/', QuestionController.getAllQuestions);
 
 // get a question
-appRoute.get('/:questionId', Validate.isNumber, QuestionController.getQuestion);
+appRoute.get('/:questionId', QuestionController.getQuestion);
 
 // create a question
 appRoute.post('/', Validate.validateInput, QuestionController.postQuestion);

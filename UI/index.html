@@ -29,13 +29,19 @@
                             Home
                         </a>   
                     </div>
+                    <div class="navbar__nav nav__underline">
+                        <a href="question.html" class="nav__link activee">
+                            <i class="fa fa-pencil p-r-5"></i>
+                            Answer
+                        </a>
+                    </div>
                     <div class="navbar__nav nav__underline p__8">
                     <div class="search">
                         <input class="form-control" type="text" placeholder="Search for Questions">
                     </div>
                     </div>
                     <div class="navbar__nav nav__underline p__8">
-                        <button type="button" class="btn btn-blue ripple" id="modalBtn" title="click to ask question">Ask a Question <i class="fa fa-plus"></i></button>
+                        <button type="button" class="btn btn-blue ripple" id="modalBtn">Ask a Question <i class="fa fa-plus"></i></button>
                     </div>
                 </nav>
                 <nav class="nav__items nav__items-right">
@@ -43,8 +49,6 @@
                         <a href="signup.html">
                             <button type="button" class="btn btn-colorless" id="loginBtn">Sign Up <i class="fa fa-dashcube"></i></button>
                         </a>
-                    </div>
-                    <div class="navbar__nav pr-0 p__8">
                         <a href="signin.html">
                             <button type="button" class="btn btn-colorless" id="loginBtn">Login <i class="fa fa-chevron-circle-right"></i></button>
                         </a>
@@ -82,29 +86,29 @@
                 <div class="columns">
                     <div class="col-2">
                         <div class="left-side">
-                            <h1>Activity</h1>
+                            <h1>Feeds</h1>
                             <div class="left-side__item active2">
-                                <a class="side-link" href="question.html"><span class="pr-1"><i class="fa fa-pencil"></i></span> Questions</a>
+                                <a class="side-link" href="#"><span class="pr-1"><i class="fa fa-pencil"></i></span> Questions</a>
                             </div>
                             <div class="left-side__item">
                                 <a class="side-link" href="#"><span class="pr-1"><i class="fa fa-book"></i></span> Answers</a>
                             </div>
-                            <!-- <div class="left-side__item">
+                            <div class="left-side__item">
                                 <a class="side-link" href="#"><span class="pr-1"><i class="fa fa-users"></i></span> Top Contributors</a>
                             </div>
                             <div class="left-side__item">
                                 <a class="side-link" href="#"><span class="pr-1"><i class="fa fa-bookmark-o"></i></span> Bookmark</a>
-                            </div> -->
+                            </div>
                             
                         </div>
                     </div>
                     <div class="col-7">
-                        <div class="carded p-1">
+                        <div class="card p-1">
                             <span>Recent Questions</span>
                         </div>
                         <div class="card p-1">
                             <div class="card-question">
-                                <a href="answer.html">Apart from Machine Learning and Data mining, I think Python is useless.</a>
+                                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, accusamus?</span>
                             </div>
                             <div class="justify-content-start">
                                 <div class="card-user">
@@ -123,7 +127,7 @@
                                 <a href="#" class="card-description__link">Read more <i class="fa fa-angle-double-right"></i></a>
                                 </p>
                             </div>
-                            <div class="card-reaction justify-content-space-between">
+                            <div class="card-reaction justify-content-start">
                                 <div class="card-views">
                                     <div class="card-btn"><span>63</span> <i class="fa fa-eye"></i>
                                     </div>
@@ -132,15 +136,11 @@
                                     <div class="card-btn"><span>63 Answers</span> <i class="fa fa-pencil"></i>
                                     </div>
                                 </div>
-                                <div class="card-tag ml-2">
-                                    <div class="card-btn"><span>Python</span>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="card p-1">
                             <div class="card-question">
-                                <a href="answer.html">How do you loop through a string in Erlang, I've been struggling with this for a while now</a>
+                                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, accusamus?</span>
                             </div>
                             <div class="justify-content-start">
                                 <div class="card-user">
@@ -159,7 +159,7 @@
                                 <a href="#" class="card-description__link">Read more <i class="fa fa-angle-double-right"></i></a>
                                 </p>
                             </div>
-                            <div class="card-reaction justify-content-space-between">
+                            <div class="card-reaction justify-content-start">
                                 <div class="card-views">
                                     <div class="card-btn"><span>63</span> <i class="fa fa-eye"></i>
                                     </div>
@@ -168,15 +168,11 @@
                                     <div class="card-btn"><span>63 Answers</span> <i class="fa fa-pencil"></i>
                                     </div>
                                 </div>
-                                <div class="card-tag ml-2">
-                                    <div class="card-btn"><span>Erlang</span>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="card p-1">
                             <div class="card-question">
-                                <a href="answer.html">Class in Javascript? why is everything synthetically covered with bitter sugar?</a>
+                                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, accusamus?</span>
                             </div>
                             <div class="justify-content-start">
                                 <div class="card-user">
@@ -195,24 +191,20 @@
                                 <a href="#" class="card-description__link">Read more <i class="fa fa-angle-double-right"></i></a>
                                 </p>
                             </div>
-                            <div class="card-reaction justify-content-space-between">
+                            <div class="card-reaction justify-content-start">
                                 <div class="card-views">
                                     <div class="card-btn"><span>63</span> <i class="fa fa-eye"></i>
                                     </div>
                                 </div>
-                                <div class="card-answer">
+                                <div class="card-answer ml-2">
                                     <div class="card-btn"><span>63 Answers</span> <i class="fa fa-pencil"></i>
-                                    </div>
-                                </div>
-                                <div class="card-tag">
-                                    <div class="card-btn"><span>JavaScript</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="card p-1">
                             <div class="card-question">
-                                <a href="answer.html">Who still learns Java in 2018? Anyone? why? Android?</a>
+                                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, accusamus?</span>
                             </div>
                             <div class="justify-content-start">
                                 <div class="card-user">
@@ -231,24 +223,20 @@
                                 <a href="#" class="card-description__link">Read more <i class="fa fa-angle-double-right"></i></a>
                                 </p>
                             </div>
-                            <div class="card-reaction justify-content-space-between">
+                            <div class="card-reaction justify-content-start">
                                 <div class="card-views">
                                     <div class="card-btn"><span>63</span> <i class="fa fa-eye"></i>
                                     </div>
                                 </div>
-                                <div class="card-answer">
+                                <div class="card-answer ml-2">
                                     <div class="card-btn"><span>63 Answers</span> <i class="fa fa-pencil"></i>
-                                    </div>
-                                </div>
-                                <div class="card-tag">
-                                    <div class="card-btn"><span>Java</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="card p-1">
                             <div class="card-question">
-                                <a href="answer.html">How can I replicate Fibonacci series in Objective C?</a>
+                                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, accusamus?</span>
                             </div>
                             <div class="justify-content-start">
                                 <div class="card-user">
@@ -267,17 +255,13 @@
                                 <a href="#" class="card-description__link">Read more <i class="fa fa-angle-double-right"></i></a>
                                 </p>
                             </div>
-                            <div class="card-reaction justify-content-space-between">
+                            <div class="card-reaction justify-content-start">
                                 <div class="card-views">
                                     <div class="card-btn"><span>63</span> <i class="fa fa-eye"></i>
                                     </div>
                                 </div>
-                                <div class="card-answer">
+                                <div class="card-answer ml-2">
                                     <div class="card-btn"><span>63 Answers</span> <i class="fa fa-pencil"></i>
-                                    </div>
-                                </div>
-                                <div class="card-tag">
-                                    <div class="card-btn"><span>Objective C</span>
                                     </div>
                                 </div>
                             </div>
@@ -285,7 +269,7 @@
                     </div>
                     <div class="col-3">
                         <div class="right-card">
-                            <span>Top Contributors</span>
+                            <h1>Top Contributors</h1>
                             <p>Lorem ipsum dolor sit amet consectetur.</p>
                             <div class="top-contributor">
                                 <div>
@@ -322,29 +306,6 @@
     </section>
 </div>
 <section>
-    <div class="shelter">
-        <div>
-          <div class="columns">
-              <div class="col-4"></div>
-              <div class="col-8">
-                    <div class="pagination">
-                        <a href="#">&laquo;</a>
-                        <a href="#">1</a>
-                        <a href="#" class="activve">2</a>
-                        <a href="#">3</a>
-                        <a href="#">4</a>
-                        <a href="#">5</a>
-                        <a href="#">6</a>
-                        <a href="#">7</a>
-                        <a href="#">8</a>
-                        <a href="#">9</a>
-                        <a href="#">10</a>
-                        <a href="#">&raquo;</a>
-                    </div>
-              </div>
-          </div>
-        </div>
-    </div>
     <div class="footer">
         <p class="text-center">Ukaegbu Sullivan Wisdom...Cycle 35 &copy; 2018</p>
     </div>
@@ -385,6 +346,5 @@
 </section>
 
 <script src="./assets/js/main.js"></script>
-<script src="./assets/js/modal.js"></script>
 </body>
 </html>

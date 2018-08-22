@@ -14,7 +14,7 @@ export default class QuestionController {
     return response.status(200).json({
       status: 'success',
       message: 'all questions',
-      all_questions: questions,
+      questions,
     });
   }
 
@@ -29,7 +29,7 @@ export default class QuestionController {
       return response.status(200).json({
         status: 'success',
         message: 'question successfully retrieved',
-        question: foundQuestion,
+        queryResult: foundQuestion,
       });
     }
     return response.status(404).json({

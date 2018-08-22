@@ -1,7 +1,8 @@
 ## Build Status
 [![Build Status](https://travis-ci.org/wiztemple/kommunity.svg?branch=develop)](https://travis-ci.org/wiztemple/kommunity)
 [![Coverage Status](https://coveralls.io/repos/github/wiztemple/kommunity/badge.svg?branch=develop)](https://coveralls.io/github/wiztemple/kommunity?branch=develop)
-[![Maintainability](https://api.codeclimate.com/v1/badges/0d6d7f87376a3d79a7cf/maintainability)](https://codeclimate.com/github/wiztemple/kommunity/maintainability)(https://codeclimate.com/github/wiztemple/kommunity/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/0d6d7f87376a3d79a7cf/maintainability)](https://codeclimate.com/github/wiztemple/kommunity/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/0d6d7f87376a3d79a7cf/test_coverage)](https://codeclimate.com/github/wiztemple/kommunity/test_coverage)
 ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
 
 
@@ -52,6 +53,8 @@ You need to have these installed before cloning the project
 
  :smile: [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript/)
 
+### Screenshots(App User Interface Template)
+![alt](./screenshots/kommunity.png)
 
 ### How To Install
 * Clone from github

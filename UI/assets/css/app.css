@@ -228,9 +228,7 @@ color:#0541fb !important;
 /* Small devices (landscape phones, less than 768px) */
 @media only screen and (max-width: 768px) { 
     .nav__items, .navbar > .shelter {
-        width: 100%;
         flex-direction: column;
-        background-color: #0541fb;
     }
     .nav__items{
         display: none;
@@ -242,14 +240,8 @@ color:#0541fb !important;
     .nav__items-right{
         margin-left:0;
     }
-    .nav__logo{
-        padding: 0.8rem 01rem !important;
-        font-family: 'Fredericka the Great', cursive;
-        font-size: 25px !important;
-        color:#fff !important;
-     }
     .navbar__nav-toggle{
-        color:#fff !important;
+        color:#0541fb !important;
         padding: 1.3rem 0.5rem !important;
         align-self: flex-end;
         display: initial;
@@ -258,28 +250,15 @@ color:#0541fb !important;
     }
     .nav__link {
         margin-bottom: 15px !important;
-        padding: 1rem 1rem !important;
+        padding: 0rem 1rem !important;
         position: relative !important;
         display: flex !important;
-        justify-content:center !important;
+        justify-content:start !important;
         align-content: center !important;
         align-self: center !important;
         align-items: center !important;
-        color: #fff !important;
+        color: #175cf2 !important;
         text-decoration: none !important;
-    }
-    .nav__link::after{
-        position: absolute;
-        content: '';
-        bottom: -10px;
-        width:100%;
-    }
-    .active::after{
-        position: absolute;
-        content: '';
-        bottom: -10px;
-        width:100%;
-        border-bottom: 3px solid #fff; 
     }
 }
 
@@ -400,7 +379,7 @@ blockquote {
     background-color: #0541fb;
     color: #fff;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15)
 }
 .btn-blue:focus {
     outline: none;
@@ -475,13 +454,11 @@ blockquote {
     padding: 10px 5px;
 }
 .right-card {
+    margin-top: 8px;
     padding: 1rem;
     background-color: #fff;
     /* box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4); */
     border-radius: 5px;
-}
-.right-card > span {
-    color: #0541fb;
 }
 .top-contributor {
     display: flex;
@@ -493,11 +470,8 @@ blockquote {
     border-radius: 10px;
 }
 .avatar-sm {
-    padding: 6px;
-    height: 40px;
-    width: 40px;
-    background-color: #ccc;
-    border-radius: 50%;
+    height: 30px;
+    width: 30px;
 }
  /* .side-link:hover {
      
@@ -548,8 +522,7 @@ textarea {
     background-color: #f8f8f8;
 }
 #answerBox {
-    display: none;
-    
+    display: none;  
 }
 #commentBox {
     display: none;
@@ -567,19 +540,8 @@ textarea {
     padding: 1rem;  
 }
 .comment-content {
-    margin-top: 15px;
     margin-left: 5rem;
-    color: #777; 
-    background-color: #ebeef8;
-    padding:10px;
-    border-bottom-left-radius: 20px;
-    border-top-right-radius:20px;
-}
-.commenter_name{
-    color: #616770;
-    font-size: 16px;
-    margin-left: 10px;
-    margin-top: 10px;
+    color: #6b4907;  
 }
 .answer-input {
     width: 100%;
@@ -587,7 +549,6 @@ textarea {
 .answer-input > button {
     margin-top: 7px;
 }
-
 .box {
     height: 100px;
     border: 1px solid #eee;
@@ -647,16 +608,12 @@ label {
     font-size: 1rem;
     line-height: 1.5;
     border-radius: .55rem;
-    /* box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15); */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
     transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-
-.card-question > a {
+.card-question > span {
     font-size: 20px;
     color: #0541fb;
-}
-.card-question > a:hover {
-    color: #55acee;
 }
 .card-description {
     color:#616770;
@@ -664,12 +621,6 @@ label {
 }
 .card-description__link {
     color:#0541fb;
-}
-.carded {
-    color: #0541fb;
-    font-size: 18px;
-    background-color: #fff;
-    border-radius: 5px;
 }
 .form-card {
     padding: 1rem;
@@ -730,28 +681,6 @@ label {
 height: 50px;
 width: 50px;
 border-radius: 50%;
-}
-/*pagination*/
-.pagination {
-    display: inline-block;
-}
-
-.pagination a {
-    color: black;
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
-}
-
-.pagination a.activve {
-    background-color: #0541fb;
-    color: white;
-    border-radius: 5px;
-}
-
-.pagination a:hover:not(.activve) {
-    background-color: #ddd;
-    border-radius: 5px;
 }
 /*utilities*/
 /*padding*/
