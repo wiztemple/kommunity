@@ -10,4 +10,6 @@ questionRoute.post('/', verifyToken, ValidateData.validateInputs, QuestionContro
 
 questionRoute.get('/', QuestionController.getAllQuestion);
 
+questionRoute.get('/:questionId', QuestionController.getQuestion);
+
 export default questionRoute;

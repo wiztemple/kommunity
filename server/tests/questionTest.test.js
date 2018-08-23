@@ -61,7 +61,7 @@ describe('Authentication', () => {
         });
     });
   });
-  describe('POST Question', () => {
+  describe('GET ALL Question', () => {
     it('should return all questions asked', (done) => {
       chai.request(app)
         .get('/api/v1/question')
@@ -69,6 +69,38 @@ describe('Authentication', () => {
           response.should.have.status(200);
           response.should.be.an('object');
           response.should.have.property('message').to.equal('question successfully posted');
+          done();
+        });
+    });
+  });
+  describe('GET A Question', () => {
+    it('should return all a specific question', (done) => {
+      chai.request(app)
+        .get('/api/v1/question/3')
+        .end((error, response) => {
+          response.should.have.status(200);
+          response.should.be.an('object');
+          response.should.have.property('message').to.equal('question successfully returned');
+          done();
+        });
+    });
+    it('should not return a question if Id is not a number', (done) => {
+      chai.request(app)
+        .get('/api/v1/question/yy')
+        .end((error, response) => {
+          response.should.have.status(400);
+          response.should.be.an('object');
+          response.should.have.property('message').to.equal('question id must be a number');
+          done();
+        });
+    });
+    it('should not return a question if Id does not exist', (done) => {
+      chai.request(app)
+        .get('/api/v1/question/yy')
+        .end((error, response) => {
+          response.should.have.status(404);
+          response.should.be.an('object');
+          response.should.have.property('message').to.equal('question not found');
           done();
         });
     });

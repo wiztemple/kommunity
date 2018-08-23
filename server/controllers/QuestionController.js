@@ -1,4 +1,6 @@
-import { createQuestion, checkTitle, fetchAllQuestions } from '../models/query';
+import {
+  createQuestion, checkTitle, fetchAllQuestions, fetchAQuestion
+} from '../models/query';
 import db from '../models/connection';
 
 export default class QuestionController {
@@ -31,6 +33,39 @@ export default class QuestionController {
         message: 'Internal Server Error'
       });
     }
+  }
+
+  /**
+         * @method getQuestion
+         * @static
+         * @description This returns a single question
+         * @param {object} request request object
+         * @param {object} response response object
+         *
+         * @returns {Object} Object
+         */
+  static async getQuestion(request, response) {
+    const { questionId } = request.params;
+    const parsedId = parseInt(questionId, 10);
+    console.log(parsedId);
+    if (isNaN(parsedId)) {
+      return response.status(400).json({
+        status: 'fail',
+        message: 'question id must be a number'
+      });
+    }
+    const data = await db.query(fetchAQuestion(parsedId));
+    if (data.rowCount === 0) {
+      return response.status(404).json({
+        status: 'fail',
+        message: 'question not found'
+      });
+    }
+    return response.status(200).json({
+      status: 'success',
+      message: 'question successfully returned',
+      question: data.rows[0],
+    });
   }
 
   /**

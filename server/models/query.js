@@ -33,3 +33,7 @@ RETURNING *
 export const fetchAllQuestions = () => (`
 SELECT * from questions 
 `);
+export const fetchAQuestion = questionId => (`
+SELECT * FROM questions
+WHERE questions.id = ${questionId}
+`);
