@@ -6,5 +6,6 @@ const authRoute = Router();
 
 authRoute.post('/signup', Validate.validateUserInputs, AuthController.signUp);
 
+authRoute.post('/login', AuthController.signIn);
 
 export default authRoute;
