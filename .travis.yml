@@ -1,6 +1,7 @@
 language: node_js
-node_js: "10.8.0"
-
+node_js: "10.9.0"
+services:
+  - postgresql
 env:
   global:
     - CC_TEST_REPORTER_ID=730b3b313df2abbc746d4d006d7b0e55c23959de692dc0fc96714221ada8bfbf
@@ -13,9 +14,6 @@ script:
   - npm test
 
 after_script:
-  cache:
-  directories:
-    - "node_modules"
   - npm run coverage
   - npm run coveralls
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
