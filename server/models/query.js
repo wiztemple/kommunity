@@ -44,3 +44,9 @@ WHERE questions.id = ${questionId}
 export const removeQuestion = (questionId, userId) => (`
 DELETE FROM questions 
 WHERE questions.id = ${questionId} AND questions.user_id = ${userId}`);
+
+export const postAnswer = (answerBody, userId, questionId) => (`
+INSERT INTO answers 
+(answer_body, user_id, question_id) 
+VALUES 
+('${answerBody}', ${userId}, ${questionId}) RETURNING *`);

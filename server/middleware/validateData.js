@@ -37,4 +37,17 @@ export default class ValidateData {
     }
     return next();
   }
+
+  static validateAnswer(request, response, next) {
+    const { answerBody } = request.body;
+    if (
+      !answerBody || answerBody === undefined || answerBody.toString().trim() === '' || typeof answerBody !== 'string'
+    ) {
+      return response.status(400).send({
+        status: 'fail',
+        message: 'you cannot submit empty field',
+      });
+    }
+    return next();
+  }
 }

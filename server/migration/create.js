@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS questions(
 const createAnswerTable = `
 CREATE TABLE IF NOT EXISTS answers(
   id SERIAL PRIMARY KEY,
-  body TEXT,
+  answer_body TEXT,
   is_preferred BOOLEAN DEFAULT false,
   question_id int,
   CONSTRAINT FK_QuestionAnswers FOREIGN KEY (question_id) REFERENCES questions(id),

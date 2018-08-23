@@ -42,7 +42,7 @@ export default class Validate {
         message: 'password is required',
       });
     }
-    if (password.length > 5) {
+    if (password.length < 6) {
       return response.status(400).json({
         status: 'fail',
         message: 'password must be greater than 5',
