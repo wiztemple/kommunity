@@ -148,7 +148,35 @@ max-width: 100%;
 }
 .navbar__nav{
     padding: 1px 0px;
+    position: relative;
 }
+.dropdown{
+    position: relative;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    border-bottom: 0 none;
+    margin-top: 5px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
+    border-radius: 3px;
+    z-index: 1;
+}
+.dropdown-content a {
+    color: #222;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: #eee;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 .nav__items{
     display: flex;
 }
