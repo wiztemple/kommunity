@@ -1,5 +1,5 @@
 import {
-  createQuestion, checkTitle, fetchAllQuestions, fetchAQuestion
+  createQuestion, checkTitle, fetchAllQuestions, fetchAQuestion, removeQuestion
 } from '../models/query';
 import db from '../models/connection';
 
@@ -47,7 +47,6 @@ export default class QuestionController {
   static async getQuestion(request, response) {
     const { questionId } = request.params;
     const parsedId = parseInt(questionId, 10);
-    console.log(parsedId);
     if (isNaN(parsedId)) {
       return response.status(400).json({
         status: 'fail',
@@ -110,6 +109,45 @@ export default class QuestionController {
       return response.status(409).json({
         status: 'conflict',
         message: 'you already posted a question with similar title'
+      });
+    } catch (error) {
+      return response.status(500).json({
+        status: 'fail',
+        message: error.message,
+      });
+    }
+  }
+
+  /**
+         * @method postQuestion
+         * @static
+         * @description This handles user question creation
+         * @param {object} request request object
+         * @param {object} response response object
+         *
+         * @returns {Object} Object
+         */
+  static async deleteQuestion(request, response) {
+    const userId = request.userId.id;
+    const { questionId } = request.params;
+    const parsedId = parseInt(questionId, 10);
+    try {
+      if (isNaN(parsedId)) {
+        return response.status(400).json({
+          status: 'fail',
+          message: 'question id must be a number'
+        });
+      }
+      const destroy = await db.query(removeQuestion(parsedId, userId));
+      if (destroy.rowCount > 0) {
+        return response.status(200).json({
+          status: 'success',
+          message: 'question successfully deleted',
+        });
+      }
+      return response.status(404).json({
+        status: 'fail',
+        message: 'question id not found',
       });
     } catch (error) {
       return response.status(500).json({

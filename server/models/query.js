@@ -33,7 +33,14 @@ RETURNING *
 export const fetchAllQuestions = () => (`
 SELECT * from questions 
 `);
+export const fetchUserQuestions = userId => (`
+SELECT * from questions
+WHERE user_id = '${userId}
+`);
 export const fetchAQuestion = questionId => (`
 SELECT * FROM questions
 WHERE questions.id = ${questionId}
 `);
+export const removeQuestion = (questionId, userId) => (`
+DELETE FROM questions 
+WHERE questions.id = ${questionId} AND questions.user_id = ${userId}`);

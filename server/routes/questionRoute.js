@@ -12,4 +12,6 @@ questionRoute.get('/', QuestionController.getAllQuestion);
 
 questionRoute.get('/:questionId', QuestionController.getQuestion);
 
+questionRoute.delete('/:questionId', verifyToken, QuestionController.deleteQuestion);
+
 export default questionRoute;
