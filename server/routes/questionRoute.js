@@ -8,5 +8,6 @@ const questionRoute = Router();
 
 questionRoute.post('/', verifyToken, ValidateData.validateInputs, QuestionController.postQuestion);
 
+questionRoute.get('/', QuestionController.getAllQuestion);
 
 export default questionRoute;

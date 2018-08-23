@@ -30,3 +30,6 @@ VALUES
 (${requestBody.userId}, '${requestBody.title}', '${requestBody.questionBody}', '${requestBody.tag}')
 RETURNING *
 `);
+export const fetchAllQuestions = () => (`
+SELECT * from questions 
+`);

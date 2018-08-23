@@ -1,7 +1,38 @@
-import { createQuestion, checkTitle } from '../models/query';
+import { createQuestion, checkTitle, fetchAllQuestions } from '../models/query';
 import db from '../models/connection';
 
 export default class QuestionController {
+  /**
+         * @method getAllQuestion
+         * @static
+         * @description This returns all question
+         * @param {object} request request object
+         * @param {object} response response object
+         *
+         * @returns {Object} Object
+         */
+  static async getAllQuestion(request, response) {
+    try {
+      const fetchQuestion = await db.query(fetchAllQuestions());
+      if (fetchQuestion) {
+        return response.status(200).json({
+          status: 'success',
+          message: 'all questions',
+          questions: fetchQuestion.rows
+        });
+      }
+      return response.status(404).json({
+        status: 'fail',
+        message: 'no question found'
+      });
+    } catch (error) {
+      return response.status(500).json({
+        status: 'fail',
+        message: 'Internal Server Error'
+      });
+    }
+  }
+
   /**
          * @method postQuestion
          * @static

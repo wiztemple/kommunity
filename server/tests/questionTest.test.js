@@ -61,4 +61,16 @@ describe('Authentication', () => {
         });
     });
   });
+  describe('POST Question', () => {
+    it('should return all questions asked', (done) => {
+      chai.request(app)
+        .get('/api/v1/question')
+        .end((error, response) => {
+          response.should.have.status(200);
+          response.should.be.an('object');
+          response.should.have.property('message').to.equal('question successfully posted');
+          done();
+        });
+    });
+  });
 });
