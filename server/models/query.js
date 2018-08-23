@@ -15,3 +15,18 @@ WHERE username = '${username}' or email = '${email}'
 `;
 
 export const findById = userId => `SELECT * FROM users WHERE id = ${userId}`;
+
+export const checkTitle = (title, userId) => (`
+SELECT title 
+FROM questions  
+WHERE questions.user_id = ${userId}
+AND 
+title = '${title}' `);
+
+export const createQuestion = requestBody => (`
+INSERT INTO questions 
+(user_id, title, question_body, tag)
+VALUES
+(${requestBody.userId}, '${requestBody.title}', '${requestBody.questionBody}', '${requestBody.tag}')
+RETURNING *
+`);

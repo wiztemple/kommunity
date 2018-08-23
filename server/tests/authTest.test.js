@@ -12,7 +12,7 @@ describe('Authentication', () => {
   describe('User Account Creation', () => {
     it('should create account if the required fields are provided', (done) => {
       const user = {
-        username: `${username}`,
+        username,
         email: `${email}@gmail.com`,
         password: 'lastmanstanding'
       };

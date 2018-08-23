@@ -2,6 +2,7 @@ import express from 'express';
 import logger from 'volleyball';
 import dotenv from 'dotenv';
 import authRoute from './server/routes/authRoute';
+import questionRoute from './server/routes/questionRoute';
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ app.get('/', (request, response) => response.status(200).json({
 }));
 // app route
 app.use('/api/v1/auth', authRoute);
+app.use('/api/v1/question', questionRoute);
 
 app.listen(port, () => {
   // eslint-disable-next-line

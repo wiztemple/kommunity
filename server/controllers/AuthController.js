@@ -34,7 +34,8 @@ export default class AuthController {
         message: 'Internal Server Error',
       });
     }
-    const token = jwtSign(createUser.rows[0].id);
+    const token = jwtSign({ id: createUser.rows[0].id, email: createUser.rows[0].email }, process.env.JWT_SECRET,
+      { expiresIn: 86400 });
     const data = { token, username: createUser.rows[0].username, email: createUser.rows[0].email };
     return response.status(201).json({
       status: 'success',
@@ -59,7 +60,8 @@ export default class AuthController {
         message: 'Internal Server Error'
       });
     }
-    const token = jwtSign(fetchUser.rows[0].id);
+    const token = jwtSign({ id: fetchUser.rows[0].id, email: fetchUser.rows[0].email }, process.env.JWT_SECRET,
+      { expiresIn: 86400 });
     const data = { token, username: fetchUser.rows[0].username, email: fetchUser.rows[0].email };
     return response.status(200).json({
       status: 'success',
