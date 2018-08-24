@@ -17,4 +17,6 @@ questionRoute.delete('/:questionId', verifyToken, QuestionController.deleteQuest
 
 questionRoute.post('/:questionId/answer', verifyToken, ValidateData.validateAnswer, AnswerController.postAnswer);
 
+questionRoute.put('/:questionId/answer/:answerId', verifyToken, AnswerController.editAnswer);
+
 export default questionRoute;

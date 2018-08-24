@@ -50,3 +50,29 @@ INSERT INTO answers
 (answer_body, user_id, question_id) 
 VALUES 
 ('${answerBody}', ${userId}, ${questionId}) RETURNING *`);
+
+
+export const fetchQuestionByAnswerId = answerId => (
+  `SELECT  question_body, 
+    q.user_id as question_creator, 
+    answer_body, 
+    a.user_id as answer_creator 
+    FROM questions q 
+    INNER JOIN 
+    answers a ON q.id = a.question_id 
+    WHERE a.id = ${answerId}`);
+
+export const setPreferedAnswer = answerId => (`
+  UPDATE answers
+  SET is_preferred = 'yes'
+  WHERE id = ${answerId}
+  RETURNING *
+  `);
+
+export const updateAnswer = (body, answerId, userId) => (`
+  UPDATE answers
+  SET answer_body = '${body}'
+  WHERE id = ${answerId} AND 
+  user_id = ${userId}
+  RETURNING *
+  `);

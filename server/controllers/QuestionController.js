@@ -95,6 +95,7 @@ export default class QuestionController {
           });
         }
         const questionObj = {
+          id: askQuestion.rows[0].id,
           title: askQuestion.rows[0].title,
           questionBody: askQuestion.rows[0].question_body,
           tag: askQuestion.rows[0].tag,
