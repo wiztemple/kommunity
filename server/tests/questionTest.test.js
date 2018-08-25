@@ -31,7 +31,7 @@ describe('Question Controller', () => {
       .send(user);
     userToken = response.body.data.token;
   });
-  describe('POST /api/v1/users/question', () => {
+  describe('POST /api/v1/question', () => {
     it('should post a question if the required fields are provided', async () => {
       const question = {
         title: 'what is var',
@@ -39,7 +39,7 @@ describe('Question Controller', () => {
         tag: 'Reebok'
       };
       const response = await request(app)
-        .post('/api/v1/users/question')
+        .post('/api/v1/question')
         .set('Accept', 'application/json')
         .set('Authorization', `Bearer ${userToken}`)
         .send(question)
@@ -63,7 +63,7 @@ describe('Question Controller', () => {
         tag: 'Adidas'
       };
       const response = await request(app)
-        .post('/api/v1/users/question')
+        .post('/api/v1/question')
         .set('Authorization', `Bearer ${userToken}`)
         .send(question)
         .expect(400);
@@ -78,13 +78,25 @@ describe('Question Controller', () => {
         tag: 'Erlang'
       };
       const response = await request(app)
-        .post('/api/v1/users/question')
+        .post('/api/v1/question')
         .set('Authorization', `Bearer ${userToken}`)
         .send(question)
         .expect(400);
       expect(response.body.status).to.equal('fail');
       expect(response.body).to.have.property('message');
       expect(response.body.message).to.equal('question body is required');
+    });
+  });
+  describe('GET User Question /api/v1/question/auth', () => {
+    it('should return all user questions', async () => {
+      const response = await request(app)
+        .get('/api/v1/question/auth')
+        .set('Authorization', `Bearer ${userToken}`)
+        .expect(200);
+      expect(response.body).to.be.an('object');
+      expect(response.body.status).to.equal('success');
+      expect(response.body).to.have.property('message');
+      expect(response.body.message).to.equal('user questions successfully retrieved');
     });
   });
   // describe('POST Answer /api/v1/users/question/answer', () => {
@@ -105,7 +117,7 @@ describe('Question Controller', () => {
   describe('DELETE /api/v1/users/question', () => {
     it('should delete a question with a specified id', async () => {
       const response = await request(app)
-        .delete('/api/v1/users/question/1')
+        .delete('/api/v1/question/1')
         .set('Accept', 'application/json')
         .set('Authorization', `Bearer ${userToken}`)
         .expect(200);
@@ -115,7 +127,7 @@ describe('Question Controller', () => {
     });
     it('should return not found if an id does not exist', async () => {
       const response = await request(app)
-        .delete('/api/v1/users/question/2')
+        .delete('/api/v1/question/2')
         .set('Accept', 'application/json')
         .set('Authorization', `Bearer ${userToken}`)
         .expect(404);
@@ -125,7 +137,7 @@ describe('Question Controller', () => {
     });
     it('should not delete if id is not a number', async () => {
       const response = await request(app)
-        .delete('/api/v1/users/question/y')
+        .delete('/api/v1/question/y')
         .set('Accept', 'application/json')
         .set('Authorization', `Bearer ${userToken}`)
         .expect(400);
@@ -134,10 +146,10 @@ describe('Question Controller', () => {
       expect(response.body.message).to.equal('question id must be a number');
     });
   });
-  describe('GET /api/v1/users/question', () => {
+  describe('GET /api/v1/question', () => {
     it('should return all questions', async () => {
       const response = await request(app)
-        .get('/api/v1/users/question')
+        .get('/api/v1/question')
         .set('Accept', 'application/json')
         .expect(200);
       expect(response.body).to.be.an('object');
