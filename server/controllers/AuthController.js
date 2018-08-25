@@ -54,7 +54,6 @@ export default class AuthController {
       });
     }
     const validatePassword = await PasswordUtility.verifyPassword(password, fetchUser.rows[0].password);
-    console.log(validatePassword);
     if (validatePassword === false) {
       return response.status(400).json({
         status: 'fail',

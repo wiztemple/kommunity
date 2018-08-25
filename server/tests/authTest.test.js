@@ -148,6 +148,21 @@ describe('User Account Creation', () => {
     expect(response.body).to.be.an('object');
     expect(response.body.message).to.equal('Invalid username or password');
   });
+  it('should not sign in a user with a wrong password', async () => {
+    const response = await request(app)
+      .post('/api/v1/auth/login')
+      .set('Accept', 'application/json')
+      .send({
+        username: 'wiztemple',
+        password: 'lastdayssss',
+      })
+      .expect(400);
+    expect(response.body).to.have.a.property('message');
+    expect(response.body).to.have.a.property('status');
+    expect(response.body.status).to.equal('fail');
+    expect(response.body).to.be.an('object');
+    expect(response.body.message).to.equal('password mismatch');
+  });
   it('should sign in a user if the right fields are provided', async () => {
     const response = await request(app)
       .post('/api/v1/auth/login')

@@ -21,7 +21,7 @@ export default class AnswerController {
     const { answerBody } = request.body;
     const result = await db.query(postAnswer(answerBody, userId, questionId)).catch(error => error.message);
     if (result.rowCount > 0) {
-      return response.status(200).json({
+      return response.status(201).json({
         status: 'success',
         message: 'Answer has been posted successfully',
         answer: result.rows,

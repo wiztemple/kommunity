@@ -5,14 +5,14 @@ import db from '../models/connection';
 
 export default class QuestionController {
   /**
-             * @method getAllQuestion
-             * @static
-             * @description This returns all question
-             * @param {object} request request object
-             * @param {object} response response object
-             *
-             * @returns {Object} Object
-             */
+ * @method getAllQuestion
+ * @static
+ * @description This returns all question
+ * @param {object} request request object
+ * @param {object} response response object
+ *
+ * @returns {Object} Object
+ */
   static async getAllQuestion(request, response) {
     try {
       const fetchQuestion = await db.query(fetchAllQuestions());
@@ -36,14 +36,14 @@ export default class QuestionController {
   }
 
   /**
-             * @method getQuestion
-             * @static
-             * @description This returns a single question
-             * @param {object} request request object
-             * @param {object} response response object
-             *
-             * @returns {Object} Object
-             */
+ * @method getQuestion
+ * @static
+ * @description This returns a single question
+ * @param {object} request request object
+ * @param {object} response response object
+ *
+ * @returns {Object} Object
+ */
   static async getQuestion(request, response) {
     const { questionId } = request.params;
     const parsedId = parseInt(questionId, 10);
@@ -68,14 +68,14 @@ export default class QuestionController {
   }
 
   /**
-             * @method postQuestion
-             * @static
-             * @description This handles user question creation
-             * @param {object} request request object
-             * @param {object} response response object
-             *
-             * @returns {Object} Object
-             */
+ * @method postQuestion
+ * @static
+ * @description This handles user question creation
+ * @param {object} request request object
+ * @param {object} response response object
+ *
+ * @returns {Object} Object
+ */
   static async postQuestion(request, response) {
     try {
       const userId = request.userId.id;
@@ -120,14 +120,14 @@ export default class QuestionController {
   }
 
   /**
-             * @method postQuestion
-             * @static
-             * @description This handles user question creation
-             * @param {object} request request object
-             * @param {object} response response object
-             *
-             * @returns {Object} Object
-             */
+ * @method postQuestion
+ * @static
+ * @description This handles user question creation
+ * @param {object} request request object
+ * @param {object} response response object
+ *
+ * @returns {Object} Object
+ */
   static async deleteQuestion(request, response) {
     const userId = request.userId.id;
     const { questionId } = request.params;
