@@ -1,5 +1,5 @@
 import {
-  createQuestion, checkTitle, fetchAllQuestions, fetchAQuestion, removeQuestion,
+  createQuestion, checkTitle, fetchAllQuestions, fetchAQuestion, removeQuestion, fetchUserQuestions,
 } from '../models/query';
 import db from '../models/connection';
 
@@ -133,7 +133,7 @@ export default class QuestionController {
     const { questionId } = request.params;
     const parsedId = parseInt(questionId, 10);
     try {
-      if (isNaN(parsedId)) {
+      if (Number.isNaN(parsedId) === true) {
         return response.status(400).json({
           status: 'fail',
           message: 'question id must be a number',
@@ -156,5 +156,30 @@ export default class QuestionController {
         message: error.message,
       });
     }
+  }
+
+  /**
+ * @method getUserQuestions
+ * @static
+ * @description This returns all questions belonging to a user
+ * @param {object} request request object
+ * @param {object} response response object
+ *
+ * @returns {Object} Object
+ */
+  static async getUserQuestions(request, response) {
+    const userId = request.userId.id;
+    const userQuestions = await db.query(fetchUserQuestions(userId));
+    if (userQuestions.rowCount > 0) {
+      return response.status(200).json({
+        status: 'success',
+        message: 'user questions successfully retrieved',
+        questions: userQuestions.rows
+      });
+    }
+    return response.status(404).json({
+      status: 'fail',
+      message: 'no questions found'
+    });
   }
 }

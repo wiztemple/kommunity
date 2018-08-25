@@ -21,7 +21,7 @@ app.get('/', (request, response) => response.status(200).json({
 }));
 // app route
 app.use('/api/v1/auth', authRoute);
-app.use('/api/v1/users/question', questionRoute);
+app.use('/api/v1/question', questionRoute);
 app.use((request, response, next) => response.status(404).json({
   message: 'Sorry, not found',
 }));
