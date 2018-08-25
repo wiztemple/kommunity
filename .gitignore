@@ -56,9 +56,6 @@ typings/
 
 # dotenv environment variables file
 .env
-.coveralls.yml
-.codeclimate.yml
-.nycrc
-package-lock.json
+
 # next.js build output
 .next

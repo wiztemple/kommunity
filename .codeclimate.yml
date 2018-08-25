@@ -1,7 +1,7 @@
 version: "2"
 exclude_patterns:
   - "node_modules/"
-  - "server/src/test/"
+  - "server/tests/"
   - "UI"
 checks:
  return-statements:
