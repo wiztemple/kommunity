@@ -2,12 +2,14 @@ import {
   postAnswer, fetchQuestionByAnswerId, setPreferedAnswer, updateAnswer
 } from '../models/query';
 import db from '../models/connection';
-
+/**
+ * @class AnswerController
+ */
 export default class AnswerController {
   /**
      * @method postAnswer
      * @static
-     * @description This returns all question
+     * @description This method handles post answer
      * @param {object} request request object
      * @param {object} response response object
      *
