@@ -1,5 +1,5 @@
 import {
-  createQuestion, checkTitle, fetchAllQuestions, fetchAQuestion, removeQuestion, fetchUserQuestions,
+  createQuestion, checkTitle, fetchAllQuestions, fetchAQuestion, removeQuestion, fetchUserQuestions, findCount,
 } from '../models/query';
 import db from '../models/connection';
 
@@ -164,7 +164,6 @@ export default class QuestionController {
  * @description This returns all questions belonging to a user
  * @param {object} request request object
  * @param {object} response response object
- *
  * @returns {Object} Object
  */
   static async getUserQuestions(request, response) {
@@ -181,5 +180,35 @@ export default class QuestionController {
       status: 'fail',
       message: 'no questions found'
     });
+  }
+
+  /**
+ * @method getMaxQuestion
+ * @static
+ * @description This returns the question with most answers
+ * @param {object} request request object
+ * @param {object} response response object
+ * @returns {Object} Object
+ */
+  static async getMaxQuestion(request, response) {
+    try {
+      const fetchMax = await db.query(findCount());
+      if (fetchMax.rowCount === 0) {
+        return response.status(404).json({
+          status: 'fail',
+          message: 'no question found'
+        });
+      }
+      return response.status(200).json({
+        status: 'success',
+        message: 'top questions successfully returned',
+        questions: fetchMax.rows
+      });
+    } catch (error) {
+      return response.status(500).json({
+        status: 'fail',
+        message: error.message,
+      });
+    }
   }
 }

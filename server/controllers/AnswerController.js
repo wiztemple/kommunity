@@ -3,18 +3,18 @@ import {
 } from '../models/query';
 import db from '../models/connection';
 /**
-     * @class AnswerController
-     */
+  * @class AnswerController
+*/
 export default class AnswerController {
   /**
-         * @method postAnswer
-         * @static
-         * @description This method handles post answer
-         * @param {object} request request object
-         * @param {object} response response object
-         *
-         * @returns {Object} Object
-        */
+   * @method postAnswer
+   * @static
+   * @description This method handles post answer
+   * @param {object} request request object
+   * @param {object} response response object
+   *
+   * @returns {Object} Object
+  */
   static async postAnswer(request, response) {
     const userId = request.userId.id;
     const { questionId } = request.params;

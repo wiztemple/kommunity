@@ -1,6 +1,8 @@
 import { Router } from 'express';
 import QuestionController from '../controllers/QuestionController';
 import AnswerController from '../controllers/AnswerController';
+import CommentController from '../controllers/CommentControllers';
+
 import verifyToken from '../middleware/verifyToken';
 import ValidateData from '../middleware/validateData';
 
@@ -11,6 +13,9 @@ questionRoute.post('/', verifyToken, ValidateData.validateInputs, QuestionContro
 
 // get all questions
 questionRoute.get('/', QuestionController.getAllQuestion);
+
+// get top questions
+questionRoute.get('/top', QuestionController.getMaxQuestion);
 
 // get user question
 questionRoute.get('/auth', verifyToken, QuestionController.getUserQuestions);
@@ -25,5 +30,7 @@ questionRoute.delete('/:questionId', verifyToken, QuestionController.deleteQuest
 questionRoute.post('/:questionId/answer', verifyToken, ValidateData.validateAnswer, AnswerController.postAnswer);
 
 questionRoute.put('/:questionId/answer/:answerId', verifyToken, AnswerController.editAnswer);
+
+questionRoute.post('/:questionId/answer/:answerId/comment', verifyToken, CommentController.postCommentOnAnswer);
 
 export default questionRoute;

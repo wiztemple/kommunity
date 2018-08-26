@@ -80,6 +80,9 @@ export const updateAnswer = (body, answerId, userId) => (`
 export const checkQuestionId = questionId => (
   `SELECT id FROM questions WHERE questions.id = ${questionId}`
 );
+export const checkAnswer = answerId => (
+  `SELECT id FROM answers WHERE answers.id = ${answerId}`
+);
 export const checkAnswerId = (questionId, answerId) => (
   `SELECT id FROM answers a WHERE a.question_id = ${questionId} AND
   a.id = ${answerId}
@@ -90,3 +93,18 @@ export const any = questionId => (
   WHERE a.question_id = ${questionId}
   SELECT * FROM questions, answers a WHERE questions.id = ${questionId}
   `);
+export const findCount = () => (`
+select q.id, q.title, count(a.id) as answerCount 
+from
+ questions q LEFT OUTER JOIN answers a 
+ ON 
+ a.question_id = q.id 
+ GROUP BY q.id
+  ORDER BY 
+  count(a.id) DESC 
+`);
+
+export const postComment = (commentBody, userId, answerId) => (`
+INSERT INTO comments
+(body, user_id, answer_id)
+VALUES ('${commentBody}', ${userId}, ${answerId}) RETURNING *`);
