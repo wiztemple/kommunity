@@ -5,6 +5,19 @@ export default class Validate {
     } = request.body;
     const nameFormat = /[ !@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/;
     const emailPattern = /[^\s]*@[a-z0-9.-]*/i;
+
+    if (username === undefined || email === undefined || password === undefined) {
+      return response.status(400).json({
+        status: 'fail',
+        message: 'please define all fields'
+      });
+    }
+    if (username.trim() === '' || email.trim() === '' || password.trim() === '') {
+      return response.status(400).json({
+        status: 'fail',
+        message: 'please fill all fields'
+      });
+    }
     if (
       !username || username === undefined || username.toString().trim() === '' || typeof username !== 'string'
     ) {

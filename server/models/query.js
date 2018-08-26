@@ -38,8 +38,9 @@ SELECT * from questions
 WHERE user_id = ${userId} ORDER BY id DESC
 `);
 export const fetchAQuestion = questionId => (`
-SELECT * FROM questions
-WHERE questions.id = ${questionId}
+SELECT q.title, q.question_body, q.user_id as questionOwner, a.answer_body, a.user_id as answerOwner FROM questions q LEFT OUTER JOIN answers a ON a.question_id = q.id
+WHERE q.id = ${questionId}
+
 `);
 export const removeQuestion = (questionId, userId) => (`
 DELETE FROM questions
@@ -75,4 +76,17 @@ export const updateAnswer = (body, answerId, userId) => (`
   WHERE id = ${answerId} AND 
   user_id = ${userId}
   RETURNING *
+  `);
+export const checkQuestionId = questionId => (
+  `SELECT id FROM questions WHERE questions.id = ${questionId}`
+);
+export const checkAnswerId = (questionId, answerId) => (
+  `SELECT id FROM answers a WHERE a.question_id = ${questionId} AND
+  a.id = ${answerId}
+  `
+);
+export const any = questionId => (
+  `SELECT q.title, q.question_body, q.user_id as questionOwner, a.answer_body, a.user_id as answerOwner FROM questions q INNER JOIN answers a ON a.question_id = q.id
+  WHERE a.question_id = ${questionId}
+  SELECT * FROM questions, answers a WHERE questions.id = ${questionId}
   `);

@@ -47,7 +47,7 @@ export default class QuestionController {
   static async getQuestion(request, response) {
     const { questionId } = request.params;
     const parsedId = parseInt(questionId, 10);
-    if (isNaN(parsedId)) {
+    if (Number.isNaN(parsedId) === true) {
       return response.status(400).json({
         status: 'fail',
         message: 'question id must be a number',
@@ -63,7 +63,7 @@ export default class QuestionController {
     return response.status(200).json({
       status: 'success',
       message: 'question successfully returned',
-      question: data.rows[0],
+      question: data.rows,
     });
   }
 
