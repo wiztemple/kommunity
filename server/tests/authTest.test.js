@@ -37,6 +37,36 @@ describe('User Account Creation', () => {
     expect(response.body).to.be.an('object');
     expect(response.body.message).to.equal('user already exists');
   });
+  it('should not create account if the required fields are undefined', async () => {
+    const response = await request(app)
+      .post('/api/v1/auth/signup')
+      .set('Accept', 'application/json')
+      .send({
+        username: undefined,
+        email: undefined,
+        password: undefined
+      })
+      .expect(400);
+    expect(response.body).to.have.a.property('message');
+    expect(response.body).to.have.a.property('status');
+    expect(response.body.status).to.equal('fail');
+    expect(response.body.message).to.equal('please define all fields');
+  });
+  it('should not create account if the required fields are empty', async () => {
+    const response = await request(app)
+      .post('/api/v1/auth/signup')
+      .set('Accept', 'application/json')
+      .send({
+        username: '',
+        email: '',
+        password: '',
+      })
+      .expect(400);
+    expect(response.body).to.have.a.property('message');
+    expect(response.body).to.have.a.property('status');
+    expect(response.body.status).to.equal('fail');
+    expect(response.body.message).to.equal('please fill all fields');
+  });
   it('should not create account if the email format is invalid', async () => {
     const response = await request(app)
       .post('/api/v1/auth/signup')
@@ -68,70 +98,6 @@ describe('User Account Creation', () => {
     expect(response.body.status).to.equal('fail');
     expect(response.body).to.be.an('object');
     expect(response.body.message).to.equal('password must be greater than 5');
-  });
-  it('should not create account if username field is empty', async () => {
-    const response = await request(app)
-      .post('/api/v1/auth/signup')
-      .set('Accept', 'application/json')
-      .send({
-        username: '',
-        email: 'tarver2@gmail.com',
-        password: 'drop',
-      })
-      .expect(400);
-    expect(response.body).to.have.a.property('message');
-    expect(response.body).to.have.a.property('status');
-    expect(response.body.status).to.equal('fail');
-    expect(response.body).to.be.an('object');
-    expect(response.body.message).to.equal('username is required');
-  });
-  it('should not create account if username contains special character', async () => {
-    const response = await request(app)
-      .post('/api/v1/auth/signup')
-      .set('Accept', 'application/json')
-      .send({
-        username: 'sullivan#',
-        email: 'tarver2@gmail.com',
-        password: 'drop',
-      })
-      .expect(400);
-    expect(response.body).to.have.a.property('message');
-    expect(response.body).to.have.a.property('status');
-    expect(response.body.status).to.equal('fail');
-    expect(response.body).to.be.an('object');
-    expect(response.body.message).to.equal('username cannot contain special character');
-  });
-  it('should not create account if the email is empty', async () => {
-    const response = await request(app)
-      .post('/api/v1/auth/signup')
-      .set('Accept', 'application/json')
-      .send({
-        username: 'sullivan',
-        email: '',
-        password: 'drop',
-      })
-      .expect(400);
-    expect(response.body).to.have.a.property('message');
-    expect(response.body).to.have.a.property('status');
-    expect(response.body.status).to.equal('fail');
-    expect(response.body).to.be.an('object');
-    expect(response.body.message).to.equal('email is required');
-  });
-  it('should not create account if the password field is empty', async () => {
-    const response = await request(app)
-      .post('/api/v1/auth/signup')
-      .set('Accept', 'application/json')
-      .send({
-        username: 'sullivan',
-        email: 'wizt@yahoo.com',
-        password: '',
-      })
-      .expect(400);
-    expect(response.body).to.have.a.property('message');
-    expect(response.body).to.have.a.property('status');
-    expect(response.body.status).to.equal('fail');
-    expect(response.body).to.be.an('object');
-    expect(response.body.message).to.equal('password is required');
   });
   it('should not sign in an unregistered user', async () => {
     const response = await request(app)

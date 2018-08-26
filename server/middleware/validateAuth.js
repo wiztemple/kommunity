@@ -18,14 +18,6 @@ export default class Validate {
         message: 'please fill all fields'
       });
     }
-    if (
-      !username || username === undefined || username.toString().trim() === '' || typeof username !== 'string'
-    ) {
-      return response.status(400).send({
-        status: 'fail',
-        message: 'username is required',
-      });
-    }
     if (nameFormat.test(username)) {
       return response.status(400).json({
         status: 'fail',
@@ -33,26 +25,10 @@ export default class Validate {
       });
     }
 
-    if (
-      !email || email === undefined || email.toString().trim() === ''
-    ) {
-      return response.status(400).send({
-        status: 'fail',
-        message: 'email is required',
-      });
-    }
     if (!emailPattern.test(email.trim())) {
       return response.status(400).json({
         status: 'fail',
         message: 'email format is invalid',
-      });
-    }
-    if (
-      !password || password === undefined || password.toString().trim() === '' || typeof password !== 'string'
-    ) {
-      return response.status(400).send({
-        status: 'fail',
-        message: 'password is required',
       });
     }
     if (password.length < 5) {

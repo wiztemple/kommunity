@@ -41,20 +41,19 @@ kommunity is a platform where people can ask questions and provide answers. A li
 
 ## Endpoints
 
-| Request | Endpoint | Action :arrow_upper_right:|
+| Request Type | Endpoint | Action :arrow_upper_right:|
 | ------- | -------- | ------ |
-| `POST` | _/api/v1/auth/signup_ | Signup a user
-| `POST` | _/api/v1/auth/login_ | Login a user
-| `POST` | _/api/v1/questions_ | Create question
-| `GET`  | _/api/v1/questions_ | Get all questions
-| `GET`  | _/api/v1/questions/auth_ | Get all questions belonging to a specified user
-| `GET`  | _/api/v1/questions/:id_ | Get a single question
-| `PUT`  | _/api/v1/questions/:id_ | Edit a question
-| `POST` | _/api/v1/questions/:id/answer_ | Post answer to a question
-| `DELETE` | _/api/v1/questions/:id_ | Delete a question
-| `PUT` | _/api/v1/questions/:id/answer/:id_ | Mark an answer as
-accepted or
-update an answer.
+| POST | _/api/v1/auth/signup_ | Signup a user
+| POST | _/api/v1/auth/login_ | Login a user
+| POST | _/api/v1/questions_ | Create question
+| GET  | _/api/v1/questions_ | Get all questions
+| GET  | _/api/v1/questions/auth_ | Get all questions belonging to a specified user
+| GET  | _/api/v1/questions/:id_ | Get a single question
+| PUT  | _/api/v1/questions/:id_ | Edit a question
+| POST | _/api/v1/questions/:id/answer_ | Post answer to a question
+| POST | _/api/v1/questions/:id/answer/:id/comment_ | Post comment to an answer
+| DELETE | _/api/v1/questions/:id_ | Delete a question
+| PUT | _/api/v1/questions/:id/answer/:id_ | Mark an answer as accepted or update an answer.
 
 
 ## Getting Started
