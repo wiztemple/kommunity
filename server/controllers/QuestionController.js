@@ -10,13 +10,12 @@ export default class QuestionController {
  * @description This returns all question
  * @param {object} request request object
  * @param {object} response response object
- *
  * @returns {Object} Object
  */
   static async getAllQuestion(request, response) {
     try {
       const fetchQuestion = await db.query(fetchAllQuestions());
-      if (fetchQuestion) {
+      if (fetchQuestion.rowCount > 0) {
         return response.status(200).json({
           status: 'success',
           message: 'all questions',
@@ -41,7 +40,6 @@ export default class QuestionController {
  * @description This returns a single question
  * @param {object} request request object
  * @param {object} response response object
- *
  * @returns {Object} Object
  */
   static async getQuestion(request, response) {
@@ -73,7 +71,6 @@ export default class QuestionController {
  * @description This handles user question creation
  * @param {object} request request object
  * @param {object} response response object
- *
  * @returns {Object} Object
  */
   static async postQuestion(request, response) {
@@ -112,8 +109,8 @@ export default class QuestionController {
         questionObj,
       });
     } catch (error) {
-      return response.status(500).json({
-        status: 'fail',
+      return response.status(401).json({
+        status: 'Unauthorized',
         message: error.message,
       });
     }
@@ -125,7 +122,6 @@ export default class QuestionController {
  * @description This handles user question creation
  * @param {object} request request object
  * @param {object} response response object
- *
  * @returns {Object} Object
  */
   static async deleteQuestion(request, response) {

@@ -55,9 +55,10 @@ kommunity is a platform where people can ask questions and provide answers. A li
 | DELETE | _/api/v1/questions/:id_ | Delete a question
 | PUT | _/api/v1/questions/:id/answer/:id_ | Mark an answer as accepted or update an answer.
 
+## Database Relationship
+![DB](./screenshots/db.png)
 
 ## Getting Started
-
 Instructions to get the project running successfully on your terminal
 
 ### Prerequisites

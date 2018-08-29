@@ -51,4 +51,17 @@ export default class ValidateData {
     }
     return next();
   }
+
+  static validateComment(request, response, next) {
+    const { commentBody } = request.body;
+    if (
+      !commentBody || commentBody === undefined || commentBody.toString().trim() === '' || typeof commentBody !== 'string'
+    ) {
+      return response.status(400).send({
+        status: 'fail',
+        message: 'you cannot submit empty field',
+      });
+    }
+    return next();
+  }
 }

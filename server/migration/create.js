@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS comments(
 db.query(createUserTable).then((response) => {
   if (response) {
     // eslint-disable-next-line
-    console.log('User table created successfully');
+    console.log('Users table created successfully');
   } else {
     // eslint-disable-next-line
     console.log('Error while creating users table');

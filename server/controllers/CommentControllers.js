@@ -4,7 +4,6 @@ import db from '../models/connection';
 /**
 * @class AnswerController
 */
-
 export default class CommentController {
   /**
    * @method postCommentOnAnswer
@@ -18,6 +17,13 @@ export default class CommentController {
     const { commentBody } = request.body;
     const userId = request.userId.id;
     const { answerId } = request.params;
+    const parsedId = parseInt(answerId, 10);
+    if (Number.isNaN(parsedId) === true) {
+      return response.status(400).json({
+        status: 'fail',
+        message: 'answer id must be a number',
+      });
+    }
     const validateAnswer = await db.query((checkAnswer(answerId)));
     if (validateAnswer.rowCount > 0) {
       const post = await db.query(postComment(commentBody, userId, answerId));

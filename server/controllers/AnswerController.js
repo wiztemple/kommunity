@@ -12,7 +12,6 @@ export default class AnswerController {
    * @description This method handles post answer
    * @param {object} request request object
    * @param {object} response response object
-   *
    * @returns {Object} Object
   */
   static async postAnswer(request, response) {
@@ -20,43 +19,44 @@ export default class AnswerController {
     const { questionId } = request.params;
     const { answerBody } = request.body;
     const checkQuestion = await db.query(checkQuestionId(questionId));
-    if (checkQuestion.rowCount > 0) {
-      console.log(postAnswer(answerBody, userId, questionId));
-      const result = await db.query(postAnswer(answerBody, userId, questionId)).catch(error => error.message);
-      console.log(result);
-      if (result.rowCount > 0) {
-        return response.status(201).json({
-          status: 'success',
-          message: 'Answer has been posted successfully',
-          answer: result.rows,
+    try {
+      if (checkQuestion.rowCount > 0) {
+        const result = await db.query(postAnswer(answerBody, userId, questionId));
+        if (result.rowCount > 0) {
+          return response.status(201).json({
+            status: 'success',
+            message: 'Answer has been posted successfully',
+            answer: result.rows,
+          });
+        }
+        return response.status(500).json({
+          status: 'fail',
+          message: 'Internal Server Error',
         });
       }
-      return response.status(500).json({
+      return response.status(404).json({
         status: 'fail',
-        message: 'Internal Server Error',
+        message: 'question id not found'
+      });
+    } catch (error) {
+      return response.status(500).json({
+        status: 'error',
+        message: error.message,
       });
     }
-    return response.status(404).json({
-      status: 'fail',
-      message: 'question id not found'
-    });
   }
 
-
   /**
-         * @method editAnswer
-         * @static
-         * @description This returns updates answer
-         * @param {object} request request object
-         * @param {object} response response object
-         *
-         * @returns {Object} Object
-        */
+ * @method editAnswer
+ * @static
+ * @description This returns updates answer
+ * @param {object} request request object
+ * @param {object} response response object
+ * @returns {Object} Object
+*/
   static async editAnswer(request, response) {
-    console.log(request.params);
     const userId = request.userId.id;
     const { questionId } = request.params;
-    console.log(questionId);
     const { answerId } = request.params;
 
     const { answerBody } = request.body;
@@ -78,23 +78,23 @@ export default class AnswerController {
             message: 'Internal Server Error',
           });
         }
-        if (result.rows[0].answer_creator === userId) {
-          const updateResult = await db.query(updateAnswer(answerBody, answerId, userId));
-          if (updateResult.rowCount > 0) {
-            return response.status(200).json({
-              status: 'success',
-              message: 'Answer has been updated successfully',
-              answer: updateResult.rows,
-            });
-          }
-          return response.status(500).json({
+        if (result.rows[0].answer_creator !== userId) {
+          return response.status(401).json({
             status: 'fail',
-            message: 'Internal Server Error',
+            message: 'user cannot perform operation'
           });
         }
-        return response.status(404).json({
+        const updateResult = await db.query(updateAnswer(answerBody, answerId, userId));
+        if (updateResult.rowCount > 0) {
+          return response.status(200).json({
+            status: 'success',
+            message: 'Answer has been updated successfully',
+            answer: updateResult.rows,
+          });
+        }
+        return response.status(500).json({
           status: 'fail',
-          message: 'user cannot perform operation on answer',
+          message: 'Internal Server Error',
         });
       }
       return response.status(500).json({
