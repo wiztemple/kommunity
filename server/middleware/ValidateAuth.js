@@ -29,6 +29,24 @@ export default class ValidateAuth {
         message: 'please fill all fields'
       });
     }
+    if (username.trim() === '') {
+      return response.status(400).json({
+        status: 'fail',
+        message: 'username is required'
+      });
+    }
+    if (email.trim() === '') {
+      return response.status(400).json({
+        status: 'fail',
+        message: 'email is required'
+      });
+    }
+    if (password.trim() === '') {
+      return response.status(400).json({
+        status: 'fail',
+        message: 'password is required'
+      });
+    }
     if (nameFormat.test(username)) {
       return response.status(400).json({
         status: 'fail',
@@ -57,7 +75,6 @@ export default class ValidateAuth {
  * @description This validates user login
  * @param {object} request request object
  * @param {object} response response object
- *
  * @returns {Object} Object
  */
   static signInValidation(request, response, next) {
@@ -66,6 +83,18 @@ export default class ValidateAuth {
       return response.status(400).json({
         status: 'fail',
         message: 'Please define all fields'
+      });
+    }
+    if (username.trim() === '') {
+      return response.status(400).json({
+        status: 'fail',
+        message: 'username is required'
+      });
+    }
+    if (password.trim() === '') {
+      return response.status(400).json({
+        status: 'fail',
+        message: 'password is required'
       });
     }
     return next();

@@ -29,7 +29,7 @@ questionRoute.delete('/:questionId', verifyToken, QuestionController.deleteQuest
 // post answer
 questionRoute.post('/:questionId/answer', verifyToken, ValidateData.validateAnswer, AnswerController.postAnswer);
 
-questionRoute.put('/:questionId/answer/:answerId', verifyToken, AnswerController.editAnswer);
+questionRoute.patch('/:questionId/answer/:answerId', verifyToken, AnswerController.editAnswer);
 
 questionRoute.post('/:questionId/answer/:answerId/comment', verifyToken, ValidateData.validateComment, CommentController.postCommentOnAnswer);
 
