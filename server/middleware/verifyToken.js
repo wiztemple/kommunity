@@ -8,6 +8,12 @@ const secret = process.env.JWT_SECRET;
 const verifyToken = (request, response, next) => {
   try {
     const token = request.headers.authorization.split(' ')[1];
+    if (!token) {
+      return response.status(401).json({
+        status: 'fail',
+        message: 'No Token provided'
+      });
+    }
     const decoded = jwt.verify(token, secret);
     request.userId = decoded;
     next();
