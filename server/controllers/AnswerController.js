@@ -1,5 +1,5 @@
 import {
-  postAnswer, fetchQuestionByAnswerId, setPreferedAnswer, updateAnswer, checkQuestionId, checkAnswerId,
+  postAnswer, fetchQuestionByAnswerId, setPreferedAnswer, updateAnswer, checkQuestionId, checkAnswerId, findQuestion,
 } from '../models/query';
 import db from '../models/connection';
 /**
@@ -29,10 +29,6 @@ export default class AnswerController {
             answer: result.rows,
           });
         }
-        return response.status(500).json({
-          status: 'fail',
-          message: 'Internal Server Error',
-        });
       }
       return response.status(404).json({
         status: 'fail',
@@ -56,34 +52,33 @@ export default class AnswerController {
 */
   static async editAnswer(request, response) {
     const userId = request.userId.id;
-    const { questionId } = request.params;
-    const { answerId } = request.params;
-
+    const { questionId, answerId } = request.params;
     const { answerBody } = request.body;
-    const checkIfAnswerExists = await db.query(checkAnswerId(questionId, answerId));
-    if (checkIfAnswerExists.rowCount > 0) {
-      const result = await db.query(fetchQuestionByAnswerId(answerId));
-      if (result.rowCount > 0) {
-        if (result.rows[0].question_creator === userId) {
-          const preferredResult = await db.query(setPreferedAnswer(answerId));
-          if (preferredResult.rowCount > 0) {
-            return response.status(200).json({
-              status: 'success',
-              message: 'Answer has been set to preferred successfully',
-              answer: preferredResult.rows,
-            });
-          }
-          return response.status(500).json({
-            status: 'fail',
-            message: 'Internal Server Error',
-          });
-        }
-        if (result.rows[0].answer_creator !== userId) {
-          return response.status(401).json({
-            status: 'fail',
-            message: 'user cannot perform operation'
-          });
-        }
+    try {
+      const checkQuestion = await db.query(findQuestion(questionId));
+      if (checkQuestion.rowCount === 0) {
+        return response.status(404).json({
+          status: 'fail',
+          message: 'question not found'
+        });
+      }
+      const checkIfAnswerExists = await db.query(checkAnswerId(questionId, answerId));
+      // console.log(checkIfAnswerExists.rows);
+      if (checkIfAnswerExists.rowCount === 0) {
+        return response.status(404).json({
+          status: 'fail',
+          message: 'Answer does not exist for question',
+        });
+      }
+      if (userId === checkQuestion.rows[0].user_id) {
+        const preferredResult = await db.query(setPreferedAnswer(answerId));
+        return response.status(200).json({
+          status: 'success',
+          message: 'Answer has been set to preferred successfully',
+          answer: preferredResult.rows,
+        });
+      }
+      if (userId === checkIfAnswerExists.rows[0].user_id) {
         const updateResult = await db.query(updateAnswer(answerBody, answerId, userId));
         if (updateResult.rowCount > 0) {
           return response.status(200).json({
@@ -92,19 +87,16 @@ export default class AnswerController {
             answer: updateResult.rows,
           });
         }
-        return response.status(500).json({
-          status: 'fail',
-          message: 'Internal Server Error',
-        });
       }
-      return response.status(500).json({
+      return response.status(403).json({
         status: 'fail',
-        message: 'Internal Server Error',
+        message: 'you cannot perform this operation',
+      });
+    } catch (error) {
+      return response.status(500).json({
+        status: 'error',
+        message: error.message
       });
     }
-    return response.status(404).json({
-      status: 'fail',
-      message: 'Answer does not exist for question',
-    });
   }
 }

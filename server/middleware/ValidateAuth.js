@@ -62,16 +62,10 @@ export default class ValidateAuth {
  */
   static signInValidation(request, response, next) {
     const { username, password } = request.body;
-    if (username === undefined || password === undefined) {
+    if ((username === undefined || username.trim() === '') || (password.trim() === '' || password === undefined)) {
       return response.status(400).json({
         status: 'fail',
-        message: 'please define all fields'
-      });
-    }
-    if (username.trim() === '' || password.trim() === '') {
-      return response.status(400).json({
-        status: 'fail',
-        message: 'please fill all fields'
+        message: 'Please define all fields'
       });
     }
     return next();

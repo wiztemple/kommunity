@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS users(
 const createQuestionTable = `
 CREATE TABLE IF NOT EXISTS questions(
     id SERIAL PRIMARY KEY,
-    title VARCHAR(255) UNIQUE NOT NULL,
+    title VARCHAR(255) NOT NULL,
     question_body TEXT NOT NULL,
     tag VARCHAR(50) DEFAULT NULL,
     created_at TIMESTAMP Default Now(),
