@@ -4,18 +4,17 @@ import PasswordUtility from '../helpers/passwordUtility';
 import jwtSign from '../helpers/jwt';
 
 /**
-   * @class AuthController
-   */
+* @class AuthController
+*/
 export default class AuthController {
   /**
-       * @method signUp
-       * @static
-       * @description This handles user registration
-       * @param {object} request request object
-       * @param {object} response response object
-       *
-       * @returns {Object} Object
-       */
+ * @method signUp
+ * @static
+ * @description This handles user registration
+ * @param {object} request request object
+ * @param {object} response response object
+ * @returns {Object} Object
+ */
   static async signUp(request, response) {
     const { username, email, password } = request.body;
     const userExists = await db.query(checkUser(username, email));

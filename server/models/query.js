@@ -30,9 +30,8 @@ VALUES
 (${requestBody.userId}, '${requestBody.title}', '${requestBody.questionBody}', '${requestBody.tag}')
 RETURNING *
 `);
-export const fetchAllQuestions = () => (`
-SELECT * from questions 
-`);
+export const fetchAllQuestions = () => (` 
+SELECT * from questions `);
 export const fetchUserQuestions = userId => (`
 SELECT * from questions
 WHERE user_id = ${userId} ORDER BY id DESC
@@ -42,6 +41,15 @@ SELECT q.title, q.question_body, q.user_id as questionOwner, a.answer_body, a.us
 WHERE q.id = ${questionId}
 
 `);
+/**
+ * @method findQuestion
+ * @description This gets a question by id
+ * @returns {Object} Object
+*/
+export const findQuestion = questionId => (`
+ SELECT * FROM questions WHERE id = ${questionId}
+`);
+
 export const removeQuestion = (questionId, userId) => (`
 DELETE FROM questions
 WHERE questions.id = ${questionId} AND questions.user_id = ${userId}`);
@@ -84,15 +92,14 @@ export const checkAnswer = answerId => (
   `SELECT id FROM answers WHERE answers.id = ${answerId}`
 );
 export const checkAnswerId = (questionId, answerId) => (
-  `SELECT id FROM answers a WHERE a.question_id = ${questionId} AND
+  `SELECT * FROM answers a WHERE a.question_id = ${questionId} AND
   a.id = ${answerId}
   `
 );
-export const any = questionId => (
-  `SELECT q.title, q.question_body, q.user_id as questionOwner, a.answer_body, a.user_id as answerOwner FROM questions q INNER JOIN answers a ON a.question_id = q.id
-  WHERE a.question_id = ${questionId}
-  SELECT * FROM questions, answers a WHERE questions.id = ${questionId}
-  `);
+export const findAnswersByQuestionId = questionId => (
+  `SELECT * FROM answers a WHERE a.question_id = ${questionId}
+  `
+);
 export const findCount = () => (`
 select q.id, q.title, count(a.id) as answerCount 
 from

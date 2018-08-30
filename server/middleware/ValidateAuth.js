@@ -1,10 +1,21 @@
-export default class Validate {
+/**
+ * @class ValidateAuth
+ */
+export default class ValidateAuth {
+  /**
+ * @method validateUserInputs
+ * @static
+ * @description This sanitizes auth data
+ * @param {object} request request object
+ * @param {object} response response object
+ * @returns {Object} Object
+ */
   static validateUserInputs(request, response, next) {
     const {
       username, email, password,
     } = request.body;
     const nameFormat = /[ !@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/;
-    const emailPattern = /[^\s]*@[a-z0-9.-]*/i;
+    const emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     if (username === undefined || email === undefined || password === undefined) {
       return response.status(400).json({
@@ -35,6 +46,26 @@ export default class Validate {
       return response.status(400).json({
         status: 'fail',
         message: 'password must be greater than 5',
+      });
+    }
+    return next();
+  }
+
+  /**
+ * @method signInValidation
+ * @static
+ * @description This validates user login
+ * @param {object} request request object
+ * @param {object} response response object
+ *
+ * @returns {Object} Object
+ */
+  static signInValidation(request, response, next) {
+    const { username, password } = request.body;
+    if ((username === undefined || username.trim() === '') || (password.trim() === '' || password === undefined)) {
+      return response.status(400).json({
+        status: 'fail',
+        message: 'Please define all fields'
       });
     }
     return next();

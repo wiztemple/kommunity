@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS users(
 const createQuestionTable = `
 CREATE TABLE IF NOT EXISTS questions(
     id SERIAL PRIMARY KEY,
-    title VARCHAR(255) UNIQUE NOT NULL,
+    title VARCHAR(255) NOT NULL,
     question_body TEXT NOT NULL,
     tag VARCHAR(50) DEFAULT NULL,
     created_at TIMESTAMP Default Now(),
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS comments(
 db.query(createUserTable).then((response) => {
   if (response) {
     // eslint-disable-next-line
-    console.log('User table created successfully');
+    console.log('Users table created successfully');
   } else {
     // eslint-disable-next-line
     console.log('Error while creating users table');

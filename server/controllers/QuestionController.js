@@ -1,5 +1,5 @@
 import {
-  createQuestion, checkTitle, fetchAllQuestions, fetchAQuestion, removeQuestion, fetchUserQuestions, findCount,
+  createQuestion, checkTitle, fetchAllQuestions, fetchAQuestion, removeQuestion, fetchUserQuestions, findCount, findQuestion, findAnswersByQuestionId,
 } from '../models/query';
 import db from '../models/connection';
 
@@ -10,22 +10,21 @@ export default class QuestionController {
  * @description This returns all question
  * @param {object} request request object
  * @param {object} response response object
- *
  * @returns {Object} Object
  */
   static async getAllQuestion(request, response) {
     try {
       const fetchQuestion = await db.query(fetchAllQuestions());
-      if (fetchQuestion) {
-        return response.status(200).json({
-          status: 'success',
-          message: 'all questions',
-          questions: fetchQuestion.rows,
+      if (fetchQuestion.rowCount === 0) {
+        return response.status(404).json({
+          status: 'fail',
+          message: 'no question found',
         });
       }
-      return response.status(404).json({
-        status: 'fail',
-        message: 'no question found',
+      return response.status(200).json({
+        status: 'success',
+        message: 'all questions',
+        questions: fetchQuestion.rows,
       });
     } catch (error) {
       return response.status(500).json({
@@ -41,29 +40,33 @@ export default class QuestionController {
  * @description This returns a single question
  * @param {object} request request object
  * @param {object} response response object
- *
  * @returns {Object} Object
  */
   static async getQuestion(request, response) {
     const { questionId } = request.params;
     const parsedId = parseInt(questionId, 10);
+    const result = {};
     if (Number.isNaN(parsedId) === true) {
       return response.status(400).json({
         status: 'fail',
         message: 'question id must be a number',
       });
     }
-    const data = await db.query(fetchAQuestion(parsedId));
-    if (data.rowCount === 0) {
+    const fetchedQuestion = await db.query(findQuestion(parsedId));
+    if (fetchedQuestion.rowCount === 0) {
       return response.status(404).json({
         status: 'fail',
         message: 'question not found',
       });
     }
+    const questionAnswers = await db.query(findAnswersByQuestionId(parsedId));
+    result.question = fetchedQuestion.rows[0];
+    result.answers = questionAnswers.rows;
     return response.status(200).json({
       status: 'success',
-      message: 'question successfully returned',
-      question: data.rows,
+      message: 'question returned successfully',
+      data: result,
+
     });
   }
 
@@ -73,7 +76,6 @@ export default class QuestionController {
  * @description This handles user question creation
  * @param {object} request request object
  * @param {object} response response object
- *
  * @returns {Object} Object
  */
   static async postQuestion(request, response) {
@@ -93,27 +95,23 @@ export default class QuestionController {
         title, questionBody, userId, tag,
       };
       const askQuestion = await db.query(createQuestion(question));
-      if (askQuestion.rowCount === 0) {
-        return response.status(500).json({
-          status: 'fail',
-          message: 'Internal Server Error',
+      if (askQuestion.rowCount > 0) {
+        const questionObj = {
+          id: askQuestion.rows[0].id,
+          title: askQuestion.rows[0].title,
+          questionBody: askQuestion.rows[0].question_body,
+          tag: askQuestion.rows[0].tag,
+          userId: askQuestion.rows[0].user_id,
+        };
+        return response.status(201).json({
+          status: 'success',
+          message: 'question successfully posted',
+          questionObj,
         });
       }
-      const questionObj = {
-        id: askQuestion.rows[0].id,
-        title: askQuestion.rows[0].title,
-        questionBody: askQuestion.rows[0].question_body,
-        tag: askQuestion.rows[0].tag,
-        userId: askQuestion.rows[0].user_id,
-      };
-      return response.status(201).json({
-        status: 'success',
-        message: 'question successfully posted',
-        questionObj,
-      });
     } catch (error) {
       return response.status(500).json({
-        status: 'fail',
+        status: 'error',
         message: error.message,
       });
     }
@@ -125,7 +123,6 @@ export default class QuestionController {
  * @description This handles user question creation
  * @param {object} request request object
  * @param {object} response response object
- *
  * @returns {Object} Object
  */
   static async deleteQuestion(request, response) {

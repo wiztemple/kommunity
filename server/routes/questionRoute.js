@@ -31,6 +31,6 @@ questionRoute.post('/:questionId/answer', verifyToken, ValidateData.validateAnsw
 
 questionRoute.put('/:questionId/answer/:answerId', verifyToken, AnswerController.editAnswer);
 
-questionRoute.post('/:questionId/answer/:answerId/comment', verifyToken, CommentController.postCommentOnAnswer);
+questionRoute.post('/:questionId/answer/:answerId/comment', verifyToken, ValidateData.validateComment, CommentController.postCommentOnAnswer);
 
 export default questionRoute;
