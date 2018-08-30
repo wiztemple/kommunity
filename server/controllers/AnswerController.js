@@ -63,7 +63,6 @@ export default class AnswerController {
         });
       }
       const checkIfAnswerExists = await db.query(checkAnswerId(questionId, answerId));
-      // console.log(checkIfAnswerExists.rows);
       if (checkIfAnswerExists.rowCount === 0) {
         return response.status(404).json({
           status: 'fail',
