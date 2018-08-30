@@ -6,7 +6,7 @@
     "test": "cross-env NODE_ENV=test nyc mocha --require babel-register --timeout 6000 ./server/tests/*.js --exit",
     "pretest": "cross-env NODE_ENV=test npm run drop-test && npm run migrate-test",
     "lint": "eslint --init --fix",
-    "start": "cross-env NODE_ENV=production babel-node ./app.js",
+    "start": "babel-node ./app.js",
     "migrate-test": "cross-env NODE_ENV=test babel-node ./server/migration/create.js",
     "drop-test": "cross-env NODE_ENV=test babel-node ./server/migration/drop.js",
     "migrate-prod": "cross-env NODE_ENV=production babel-node ./server/migration/create.js",
