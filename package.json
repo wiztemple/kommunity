@@ -9,6 +9,8 @@
     "start": "cross-env NODE_ENV=production babel-node ./app.js",
     "migrate-test": "cross-env NODE_ENV=test babel-node ./server/migration/create.js",
     "drop-test": "cross-env NODE_ENV=test babel-node ./server/migration/drop.js",
+    "migrate-prod": "cross-env NODE_ENV=production babel-node ./server/migration/create.js",
+    "drop-prod": "cross-env NODE_ENV=prod babel-node ./server/migration/drop.js",
     "dev": "cross-env NODE_ENV=development nodemon --exec babel-node ./app.js",
     "create-table": "babel-node ./server/migration/create.js",
     "drop": "babel-node ./server/migration/drop.js",
