@@ -146,15 +146,15 @@ describe('Question Controller', () => {
       expect(response.body.message).to.equal('question id must be a number');
     });
   });
-  describe('GET /api/v1/question', () => {
-    it('should return all questions', async () => {
-      const response = await request(app)
-        .get('/api/v1/question')
-        .set('Accept', 'application/json')
-        .expect(200);
-      expect(response.body).to.be.an('object');
-      expect(response.body).to.have.property('message');
-      expect(response.body.message).to.equal('all questions');
-    });
-  });
+  // describe('GET /api/v1/question', () => {
+  //   it('should return all questions', async () => {
+  //     const response = await request(app)
+  //       .get('/api/v1/question')
+  //       .set('Accept', 'application/json')
+  //       .expect(200);
+  //     expect(response.body).to.be.an('object');
+  //     expect(response.body).to.have.property('message');
+  //     expect(response.body.message).to.equal('all questions');
+  //   });
+  // });
 });
