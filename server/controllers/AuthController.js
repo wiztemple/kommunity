@@ -16,6 +16,7 @@ export default class AuthController {
  * @returns {Object} Object
  */
   static async signUp(request, response) {
+    console.log(request.body);
     const { username, email, password } = request.body;
     const userExists = await db.query(checkUser(username, email));
     if (userExists.rowCount > 0) {

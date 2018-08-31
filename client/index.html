@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Kommunity</title>
+  <link rel="icon" href="./assets/images/chatting.png" type="image/gif" sizes="16x16">
+  <link rel="stylesheet" href="./assets/css/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./assets/css/app.css">
+</head>
+<body>
+<div class="app">
+    <div class="header" id="header">
+        <div class="navbar fixed-top" id="navbar">
+            <div class="shelter">
+                <a class="navbar__nav nav__logo nav__underline" href="index.html">
+                <span class="link-title"><i class="fa fa-mars"></i>
+                   <span>K</span>ommunity
+                </span> 
+                </a>
+                <div class="navbar__nav navbar__nav-toggle">
+                    <i class="fa fa-bars"></i>
+                </div>
+                <nav class="nav__items">
+                    <div class="navbar__nav nav__underline">
+                        <a href="index.html" class="nav__link active">
+                            <i class="fa fa-home p-r-5"></i>
+                            Home
+                        </a>   
+                    </div>
+                    <div class="navbar__nav nav__underline p__8">
+                    <div class="search">
+                        <input class="form-control" type="text" placeholder="Search for Questions">
+                    </div>
+                    </div>
+                    <div class="navbar__nav nav__underline p__8">
+                        <button type="button" class="btn btn-blue ripple" id="modalBtn" title="click to ask question">Ask a Question <i class="fa fa-plus"></i></button>
+                    </div>
+                </nav>
+                <nav class="nav__items nav__items-right">
+                    <div class="navbar__nav pr-0 p__8">
+                        <a href="signup.html">
+                            <button type="button" class="btn btn-colorless" id="loginBtn">Sign Up <i class="fa fa-dashcube"></i></button>
+                        </a>
+                    </div>
+                    <div class="navbar__nav pr-0 p__8">
+                        <a href="signin.html">
+                            <button type="button" class="btn btn-colorless" id="loginBtn">Login <i class="fa fa-chevron-circle-right"></i></button>
+                        </a>
+                    </div>
+                </nav>
+            </div><!--end container-->
+        </div><!--end navbar-->
+        <div class="banner mt-3">
+            <div class="shelter">
+                <div class="card__shadow">
+                    <div class="columns">
+                        <div class="col-6">
+                            <div class="flex">
+                                <div class="welcome">
+                                    <h1>Ask questions, answer questions and get answers!</h1>
+                                    <blockquote>
+                                        “To be able to ask a question clearly is two-thirds of the way to getting it answered.” ― John Ruskin
+                                    </blockquote> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="flex">
+                            <img class="img__shelter" src="./assets/images/com.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--end header-->
+    <section class="py-2">
+        <div class="shelter">
+            <div class="ddd">
+                <div class="columns">
+                    <div class="col-2">
+                        <div class="left-side">
+                            <h1>Activity</h1>
+                            <div class="left-side__item active2">
+                                <a class="side-link" href="question.html"><span class="pr-1"><i class="fa fa-pencil"></i></span> Questions</a>
+                            </div>
+                            <div class="left-side__item">
+                                <a class="side-link" href="#"><span class="pr-1"><i class="fa fa-book"></i></span> Answers</a>
+                            </div>
+                            <!-- <div class="left-side__item">
+                                <a class="side-link" href="#"><span class="pr-1"><i class="fa fa-users"></i></span> Top Contributors</a>
+                            </div>
+                            <div class="left-side__item">
+                                <a class="side-link" href="#"><span class="pr-1"><i class="fa fa-bookmark-o"></i></span> Bookmark</a>
+                            </div> -->
+                            
+                        </div>
+                    </div>
+                    <div class="col-7">
+                        <div class="carded p-1">
+                            <span>Recent Questions</span>
+                        </div>
+                        <div class="card p-1">
+                            <div class="card-question">
+                                <a href="answer.html">Apart from Machine Learning and Data mining, I think Python is useless.</a>
+                            </div>
+                            <div class="justify-content-start">
+                                <div class="card-user">
+                                    <img class="avatar" src="./assets/images/alarm-clock.png">
+                                </div>
+                                <div class="card-user__job flex">
+                                    <span class="pl-2">Lorem ipsum dolor sit amet.</span>
+                                    <span> 
+                                        <small class="text-grey">1 minute ago</small>
+                                        <small class="text-grey">07-08-2018</small>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="card-description">
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, rem. Exercitationem libero quam esse ipsam quos rem ut nostrum aperiam?
+                                <a href="#" class="card-description__link">Read more <i class="fa fa-angle-double-right"></i></a>
+                                </p>
+                            </div>
+                            <div class="card-reaction justify-content-space-between">
+                                <div class="card-views">
+                                    <div class="card-btn"><span>63</span> <i class="fa fa-eye"></i>
+                                    </div>
+                                </div>
+                                <div class="card-answer ml-2">
+                                    <div class="card-btn"><span>63 Answers</span> <i class="fa fa-pencil"></i>
+                                    </div>
+                                </div>
+                                <div class="card-tag ml-2">
+                                    <div class="card-btn"><span>Python</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card p-1">
+                            <div class="card-question">
+                                <a href="answer.html">How do you loop through a string in Erlang, I've been struggling with this for a while now</a>
+                            </div>
+                            <div class="justify-content-start">
+                                <div class="card-user">
+                                    <img class="avatar" src="./assets/images/server.png">
+                                </div>
+                                <div class="card-user__job flex">
+                                    <span class="pl-2">Lorem ipsum dolor sit amet.</span>
+                                    <span> 
+                                        <small class="text-grey">1 minute ago</small>
+                                        <small class="text-grey">07-08-2018</small>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="card-description">
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, rem. Exercitationem libero quam esse ipsam quos rem ut nostrum aperiam?
+                                <a href="#" class="card-description__link">Read more <i class="fa fa-angle-double-right"></i></a>
+                                </p>
+                            </div>
+                            <div class="card-reaction justify-content-space-between">
+                                <div class="card-views">
+                                    <div class="card-btn"><span>63</span> <i class="fa fa-eye"></i>
+                                    </div>
+                                </div>
+                                <div class="card-answer ml-2">
+                                    <div class="card-btn"><span>63 Answers</span> <i class="fa fa-pencil"></i>
+                                    </div>
+                                </div>
+                                <div class="card-tag ml-2">
+                                    <div class="card-btn"><span>Erlang</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card p-1">
+                            <div class="card-question">
+                                <a href="answer.html">Class in Javascript? why is everything synthetically covered with bitter sugar?</a>
+                            </div>
+                            <div class="justify-content-start">
+                                <div class="card-user">
+                                    <img class="avatar" src="./assets/images/brainstorm.png">
+                                </div>
+                                <div class="card-user__job flex">
+                                    <span class="pl-2">Lorem ipsum dolor sit amet.</span>
+                                    <span> 
+                                        <small class="text-grey">1 minute ago</small>
+                                        <small class="text-grey">07-08-2018</small>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="card-description">
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, rem. Exercitationem libero quam esse ipsam quos rem ut nostrum aperiam?
+                                <a href="#" class="card-description__link">Read more <i class="fa fa-angle-double-right"></i></a>
+                                </p>
+                            </div>
+                            <div class="card-reaction justify-content-space-between">
+                                <div class="card-views">
+                                    <div class="card-btn"><span>63</span> <i class="fa fa-eye"></i>
+                                    </div>
+                                </div>
+                                <div class="card-answer">
+                                    <div class="card-btn"><span>63 Answers</span> <i class="fa fa-pencil"></i>
+                                    </div>
+                                </div>
+                                <div class="card-tag">
+                                    <div class="card-btn"><span>JavaScript</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card p-1">
+                            <div class="card-question">
+                                <a href="answer.html">Who still learns Java in 2018? Anyone? why? Android?</a>
+                            </div>
+                            <div class="justify-content-start">
+                                <div class="card-user">
+                                    <img class="avatar" src="./assets/images/chat.png">
+                                </div>
+                                <div class="card-user__job flex">
+                                    <span class="pl-2">Lorem ipsum dolor sit amet.</span>
+                                    <span> 
+                                        <small class="text-grey">1 minute ago</small>
+                                        <small class="text-grey">07-08-2018</small>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="card-description">
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, rem. Exercitationem libero quam esse ipsam quos rem ut nostrum aperiam?
+                                <a href="#" class="card-description__link">Read more <i class="fa fa-angle-double-right"></i></a>
+                                </p>
+                            </div>
+                            <div class="card-reaction justify-content-space-between">
+                                <div class="card-views">
+                                    <div class="card-btn"><span>63</span> <i class="fa fa-eye"></i>
+                                    </div>
+                                </div>
+                                <div class="card-answer">
+                                    <div class="card-btn"><span>63 Answers</span> <i class="fa fa-pencil"></i>
+                                    </div>
+                                </div>
+                                <div class="card-tag">
+                                    <div class="card-btn"><span>Java</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card p-1">
+                            <div class="card-question">
+                                <a href="answer.html">How can I replicate Fibonacci series in Objective C?</a>
+                            </div>
+                            <div class="justify-content-start">
+                                <div class="card-user">
+                                    <img class="avatar" src="./assets/images/boy.png">
+                                </div>
+                                <div class="card-user__job flex">
+                                    <span class="pl-2">Lorem ipsum dolor sit amet.</span>
+                                    <span> 
+                                        <small class="text-grey">1 minute ago</small>
+                                        <small class="text-grey">07-08-2018</small>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="card-description">
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, rem. Exercitationem libero quam esse ipsam quos rem ut nostrum aperiam?
+                                <a href="#" class="card-description__link">Read more <i class="fa fa-angle-double-right"></i></a>
+                                </p>
+                            </div>
+                            <div class="card-reaction justify-content-space-between">
+                                <div class="card-views">
+                                    <div class="card-btn"><span>63</span> <i class="fa fa-eye"></i>
+                                    </div>
+                                </div>
+                                <div class="card-answer">
+                                    <div class="card-btn"><span>63 Answers</span> <i class="fa fa-pencil"></i>
+                                    </div>
+                                </div>
+                                <div class="card-tag">
+                                    <div class="card-btn"><span>Objective C</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="right-card">
+                            <span>Top Contributors</span>
+                            <p>Lorem ipsum dolor sit amet consectetur.</p>
+                            <div class="top-contributor">
+                                <div>
+                                    <img class="avatar-sm" src="./assets/images/girl.png">
+                                </div>
+                                <span class="flex">Edwin Ada</span>
+                                <div class="flex">
+                                    <span> <i class="fa fa-comment-o"></i> 439</span>
+                                </div>
+                            </div>
+                            <div class="top-contributor">
+                                <div>
+                                    <img class="avatar-sm" src="./assets/images/boy.png">
+                                </div>
+                                <span class="flex">Sullivan</span>
+                                <div class="flex">
+                                    <span> <i class="fa fa-comment-o"></i> 439</span>
+                                </div>
+                            </div>
+                            <div class="top-contributor">
+                                <div>
+                                    <img class="avatar-sm" src="./assets/images/girl.png">
+                                </div>
+                                <span class="flex">Henzem</span>
+                                <div class="flex">
+                                    <span> <i class="fa fa-comment-o"></i> 439</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<section>
+    <div class="shelter">
+        <div>
+          <div class="columns">
+              <div class="col-4"></div>
+              <div class="col-8">
+                    <div class="pagination">
+                        <a href="#">&laquo;</a>
+                        <a href="#">1</a>
+                        <a href="#" class="activve">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                        <a href="#">6</a>
+                        <a href="#">7</a>
+                        <a href="#">8</a>
+                        <a href="#">9</a>
+                        <a href="#">10</a>
+                        <a href="#">&raquo;</a>
+                    </div>
+              </div>
+          </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p class="text-center">Ukaegbu Sullivan Wisdom...Cycle 35 &copy; 2018</p>
+    </div>
+</section>
+<section>
+    <div id="modal" class="modal">
+        <div>
+            <div class="columns">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span class="closeBtn">&times;</span>
+                            <h2 class="text-blue">Ask Question</h2>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-row">
+                                    <label for="name">Title</label>
+                                    <input type="text" class="form-control" placeholder="title">
+                                </div>
+                                <div class="form-row">
+                                    <label for="name">Question</label>
+                                    <textarea class="textarea" rows="4" cols="50" placeholder="your question's body">    
+                                    </textarea>
+                                </div>
+                            </form>
+                        </div><!--end modal body-->
+                        <div class="modal-footer">
+                        <button class="btn ripple btn-colorless">Ask <i class="fa fa-question"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4"></div>
+            </div>  
+        </div>
+    </div>
+</section>
+
+<script src="./assets/js/main.js"></script>
+<script src="./assets/js/modal.js"></script>
+</body>
+</html>
