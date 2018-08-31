@@ -16,19 +16,7 @@ export default class ValidateAuth {
     } = request.body;
     const nameFormat = /[ !@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/;
     const emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-    if (username === undefined || email === undefined || password === undefined) {
-      return response.status(400).json({
-        status: 'fail',
-        message: 'please define all fields'
-      });
-    }
-    if (username.trim() === '' || email.trim() === '' || password.trim() === '') {
-      return response.status(400).json({
-        status: 'fail',
-        message: 'please fill all fields'
-      });
-    }
+    
     if (username.trim() === '') {
       return response.status(400).json({
         status: 'fail',
@@ -45,6 +33,18 @@ export default class ValidateAuth {
       return response.status(400).json({
         status: 'fail',
         message: 'password is required'
+      });
+    }
+    if (username === undefined || email === undefined || password === undefined) {
+      return response.status(400).json({
+        status: 'fail',
+        message: 'please define all fields'
+      });
+    }
+    if (username.trim() === '' || email.trim() === '' || password.trim() === '') {
+      return response.status(400).json({
+        status: 'fail',
+        message: 'please fill all fields'
       });
     }
     if (nameFormat.test(username)) {
