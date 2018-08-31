@@ -52,20 +52,50 @@ describe('User Account Creation', () => {
     expect(response.body.status).to.equal('fail');
     expect(response.body.message).to.equal('please define all fields');
   });
-  it('should not create account if the required fields are empty', async () => {
+  it('should not create account if the username field is empty', async () => {
     const response = await request(app)
       .post('/api/v1/auth/signup')
       .set('Accept', 'application/json')
       .send({
         username: '',
+        email: 'drum@gmail.com',
+        password: 'drumittttt',
+      })
+      .expect(400);
+    expect(response.body).to.have.a.property('message');
+    expect(response.body).to.have.a.property('status');
+    expect(response.body.status).to.equal('fail');
+    expect(response.body.message).to.equal('username is required');
+  });
+  it('should not create account if the email field is empty', async () => {
+    const response = await request(app)
+      .post('/api/v1/auth/signup')
+      .set('Accept', 'application/json')
+      .send({
+        username: 'drumxy',
         email: '',
+        password: 'drumittttt',
+      })
+      .expect(400);
+    expect(response.body).to.have.a.property('message');
+    expect(response.body).to.have.a.property('status');
+    expect(response.body.status).to.equal('fail');
+    expect(response.body.message).to.equal('email is required');
+  });
+  it('should not create account if the password field is empty', async () => {
+    const response = await request(app)
+      .post('/api/v1/auth/signup')
+      .set('Accept', 'application/json')
+      .send({
+        username: 'drumzy',
+        email: 'drum@gmail.com',
         password: '',
       })
       .expect(400);
     expect(response.body).to.have.a.property('message');
     expect(response.body).to.have.a.property('status');
     expect(response.body.status).to.equal('fail');
-    expect(response.body.message).to.equal('please fill all fields');
+    expect(response.body.message).to.equal('password is required');
   });
   it('should not create account if the email format is invalid', async () => {
     const response = await request(app)

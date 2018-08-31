@@ -16,7 +16,12 @@ export default class ValidateAuth {
     } = request.body;
     const nameFormat = /[ !@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/;
     const emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    
+    if (username === undefined || email === undefined || password === undefined) {
+      return response.status(400).json({
+        status: 'fail',
+        message: 'please define all fields'
+      });
+    }
     if (username.trim() === '') {
       return response.status(400).json({
         status: 'fail',
@@ -33,18 +38,6 @@ export default class ValidateAuth {
       return response.status(400).json({
         status: 'fail',
         message: 'password is required'
-      });
-    }
-    if (username === undefined || email === undefined || password === undefined) {
-      return response.status(400).json({
-        status: 'fail',
-        message: 'please define all fields'
-      });
-    }
-    if (username.trim() === '' || email.trim() === '' || password.trim() === '') {
-      return response.status(400).json({
-        status: 'fail',
-        message: 'please fill all fields'
       });
     }
     if (nameFormat.test(username)) {
@@ -79,22 +72,22 @@ export default class ValidateAuth {
  */
   static signInValidation(request, response, next) {
     const { username, password } = request.body;
-    if ((username === undefined || username.trim() === '') || (password.trim() === '' || password === undefined)) {
-      return response.status(400).json({
-        status: 'fail',
-        message: 'Please define all fields'
-      });
-    }
-    if (username.trim() === '') {
+    if (username === '') {
       return response.status(400).json({
         status: 'fail',
         message: 'username is required'
       });
     }
-    if (password.trim() === '') {
+    if (password === '') {
       return response.status(400).json({
         status: 'fail',
         message: 'password is required'
+      });
+    }
+    if (username === undefined || password === undefined) {
+      return response.status(400).json({
+        status: 'fail',
+        message: 'Please define all fields'
       });
     }
     return next();
