@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great');
+@import url('https://fonts.googleapis.com/css?family=Lobster');
 @import url('https://fonts.googleapis.com/css?family=Sunflower:300');
 *,
 *::before,
@@ -190,9 +190,14 @@ max-width: 100%;
 
 .nav__logo{
 padding: 0.8rem 01rem !important;
-font-family: 'Fredericka the Great', cursive;
+font-family: 'Lobster', cursive;
 font-size: 25px !important;
 color:#0541fb !important;
+text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+ }
+ .logo{
+    font-family: 'Lobster', cursive; 
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3); 
  }
  .nav__link{
     padding: 1.23rem 1rem;
@@ -952,6 +957,7 @@ border-radius: 50%;
     float:right;
     font-size: 30px;
 }
+
   .closeBtn:hover, .closeBtn:focus{
     color:#000;
     text-decoration: none;
