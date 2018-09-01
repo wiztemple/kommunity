@@ -193,11 +193,9 @@ padding: 0.8rem 01rem !important;
 font-family: 'Lobster', cursive;
 font-size: 25px !important;
 color:#0541fb !important;
-text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
  }
  .logo{
     font-family: 'Lobster', cursive; 
-    text-shadow: 2px 4px 3px rgba(0,0,0,0.3); 
  }
  .nav__link{
     padding: 1.23rem 1rem;
@@ -655,12 +653,50 @@ label {
 }
 /*cards*/
 .card {
+    position: relative;
     background-color: #fff;
     border-radius: 3px;
     margin-top: 10px;
     border-left: 3px solid transparent;
     /* box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15); */
 }
+.card-drop {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background: #fff;
+    box-shadow:0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
+    border-radius: 5px;
+    
+}
+.card-hide > i{
+color: #777;
+}
+.card-drop > a {
+    color: #777;
+    display: block;
+    padding: 8px 10px;
+}
+.card-drop > a:hover {
+    background-color: #0541fb;
+    color: #fff;
+    transition: all ease-in 0.3s;
+    cursor: pointer;
+}
+/* .card-drop::before {
+    position: absolute;
+    right: 10px;
+    top: -10px;
+    background-color:#fff;
+    border-top: 1px solid #eee;
+    border-left: 1px solid #eee;
+    content: '';
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    z-index: -1;
+} */
 .card:hover{
     border-left-color: #0541fb;
 }
@@ -692,6 +728,10 @@ label {
     border-radius: .55rem;
     /* box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15); */
     transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.card-question {
+    display: flex;
+    justify-content: flex-start;
 }
 
 .card-question > a {
