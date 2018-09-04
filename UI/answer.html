@@ -36,20 +36,22 @@
                             
                         </div>
                         <div class="navbar__nav nav__underline p__8">
-                        <div class="search">
-                            <input class="form-control" type="text" placeholder="Search for Questions">
+                            <div class="search">
+                                <input class="form-control" type="text" placeholder="Search for Questions">
+                            </div>
                         </div>
+                        <div class="navbar__nav nav__underline p__8">
+                            <button type="button" class="btn btn-blue ripple" id="modalBtn" title="click to ask question">Ask a Question <i class="fa fa-plus"></i></button>
                         </div>
                        
                     </nav>
                     <nav class="nav__items nav__items-right">
-                        <div class="navbar__nav pr-0 p__8">
-                            <a href="#"><img src="./assets/images/boy.png" class="avatar-sm"></a>
-                        </div>
-                        <div class="navbar__nav pr-0 p__8">
-                            <a href="#">
-                                <button type="button" class="btn btn-colorless ripple" id="logoutBtn"> <i class="fa fa-power-off"></i></button>
-                            </a>  
+                        <div class="navbar__nav pr-0 p__8 dropdown">
+                            <a href="#"><img src="./assets/images/boy.png" class="avatar-sm" title="Profile"></a>
+                            <div class="dropdown-content">
+                                <a href="#">Log out <i class="fa fa-power-off"></i></a>
+                                <a href="profile.html">Profile <i class="fa fa-user-o"></i></a>
+                            </div>
                         </div>
                     </nav>
                 </div><!--end container-->
@@ -60,11 +62,6 @@
                 <div class="ddd mt-2">
                     <div class="columns">
                         <div class="col-7">
-                            <div class="answer mb-2">
-                                <h2 class="answer-title">What is the best use of span in HTML?</h2>
-                               
-                            </div>
-                           
                             <div class="card p-1">
                                 <div class="card-question">
                                     <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, accusamus?</span>
@@ -174,8 +171,44 @@
                                         </div>
                                 </div>
                               
+                            </div>   
+                        </div>
+                        <div class="col-5">
+                            <div class="lfa-card">
+                                <div class="lfa-card_child">
+                                    <div class="right-card fixed">
+                                        <span>Top Contributors</span>
+                                        <p>Lorem ipsum dolor sit amet consectetur.</p>
+                                        <div class="top-contributor">
+                                            <div>
+                                                <img class="avatar-sm" src="./assets/images/girl.png">
+                                            </div>
+                                            <span class="flex">JS Closure</span>
+                                            <div class="flex">
+                                                <span> <i class="fa fa-comment-o"></i> 439</span>
+                                            </div>
+                                        </div>
+                                        <div class="top-contributor">
+                                            <div>
+                                                <img class="avatar-sm" src="./assets/images/boy.png">
+                                            </div>
+                                            <span class="flex">Camel casing in postgres</span>
+                                            <div class="flex">
+                                                <span> <i class="fa fa-comment-o"></i> 439</span>
+                                            </div>
+                                        </div>
+                                        <div class="top-contributor">
+                                            <div>
+                                                <img class="avatar-sm" src="./assets/images/girl.png">
+                                            </div>
+                                            <span class="flex">Python Development</span>
+                                            <div class="flex">
+                                                <span> <i class="fa fa-comment-o"></i> 439</span>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </div>
                             </div>
-                            
                         </div>
                     </div>
                 </div>
@@ -209,8 +242,44 @@
                 <p class="text-center">Ukaegbu Sullivan Wisdom...Cycle 35 &copy; 2018</p>
             </div>
         </section>
+        <section>
+            <div id="modal" class="modal">
+                <div>
+                    <div class="columns">
+                        <div class="col-4"></div>
+                        <div class="col-4">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="closeBtn">&times;</span>
+                                    <h2 class="text-blue">Ask Question</h2>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-row">
+                                            <label for="name">Title</label>
+                                            <input type="text" class="form-control" placeholder="title">
+                                        </div>
+                                        <div class="form-row">
+                                            <label for="name">Question</label>
+                                            <textarea class="textarea" rows="4" cols="50" placeholder="your question's body">    
+                                            </textarea>
+                                        </div>
+                                    </form>
+                                </div><!--end modal body-->
+                                <div class="modal-footer">
+                                <button class="btn ripple btn-colorless">Ask <i class="fa fa-question"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4"></div>
+                    </div>  
+                </div>
+            </div>
+        </section>
     </div>
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/dropdown.js"></script>
+    <script src="./assets/js/modal.js"></script>
+
 </body>
 </html>
