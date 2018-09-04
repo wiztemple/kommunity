@@ -2,9 +2,8 @@ const bar = document.querySelector('.navbar__nav-toggle');
 const ellipis = document.querySelector('.card-hide');
 
 function navToggle() {
-  const navs = document.querySelectorAll('.nav__items');
+  const navs = document.querySelector('.nav__items');
   navs.forEach(nav => nav.classList.toggle('navbar__toggleShow'));
-//   console.log(navs);
 }
 bar.addEventListener('click', navToggle);
 

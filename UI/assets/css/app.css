@@ -670,6 +670,15 @@ label {
     border-radius: 5px;
     
 }
+.card-hide {
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #eee;
+    border-radius: 50%;
+}
 .card-hide > i{
 color: #777;
 }
