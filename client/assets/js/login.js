@@ -1,20 +1,17 @@
-const signup = document.getElementById('signup');
+const signin = document.getElementById('signin');
 
-async function createAccount(e) {
+async function login(e) {
   e.preventDefault();
   const username = document.getElementById('username').value;
-  const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
   const msg = document.querySelector('.msg');
+  const loginButton = document.getElementById('login');
   const signBtn = document.getElementById('signBtn');
   const loginBtn = document.getElementById('loginBtn');
-  const signupBtn = document.getElementById('signupBtn');
-  signupBtn.disabled = true;
-  signupBtn.innerHTML = 'Creating your account...';
-
-  const requestBody = { username, email, password };
-  const url = '/api/v1/auth/signup';
-
+  loginButton.disabled = true;
+  loginButton.innerHTML = 'Logging you in...';
+  const requestBody = { username, password };
+  const url = '/api/v1/auth/login';
   const header = {
     'Content-Type': 'application/json'
   };
@@ -27,13 +24,9 @@ async function createAccount(e) {
     const result = await response.json();
     if (result.status === 'success') {
       const Usertoken = result.data.token;
-      const user = result.data.username;
+      const Useremail = result.data.email;
       localStorage.setItem('token', Usertoken);
-      localStorage.setItem('username', user);
-      msg.style.display = 'block';
-      msg.style.color = '#fff';
-      msg.style.backgroundColor = '#8fefaf';
-      msg.innerHTML = result.message;
+      localStorage.setItem('email', Useremail);
       setTimeout(() => {
         window.location.href = 'index.html';
         signBtn.style.display = 'none';
@@ -44,12 +37,12 @@ async function createAccount(e) {
       msg.style.backgroundColor = '#f99aa9';
       msg.innerHTML = result.message;
       setTimeout(() => {
-        window.location.href = 'signup.html';
-      }, 1000);
+        window.location.href = 'signin.html';
+      }, 1500);
     }
   } catch (error) {
     // eslint-disable-next-line
     console.log(error);
   }
 }
-signup.addEventListener('submit', createAccount);
+signin.addEventListener('submit', login);
