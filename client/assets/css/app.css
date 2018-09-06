@@ -656,10 +656,7 @@ label {
     display: none;
     padding: 10px;
     margin-bottom: 10px;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 20px;
+    border-radius: 2px;
 }
 /*cards*/
 .card {

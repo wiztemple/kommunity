@@ -19,17 +19,18 @@
                     <h1 class="text-center"><a class="text-blue logo" href="index.html">Kommunity</a></h1>
                     <h2 class="text-center text-grey">Sign in to Kommunity</h2>
                     <div class="form-card">       
-                        <form id="signup">
+                        <form id="signin">
+                            <div class="msg"></div>
                             <span class="js__errormsg"></span>
                             <div class="form-row">
-                                <label for="name">Email:</label>
-                                <input type="email" class="form-control" name="email" placeholder="Enter your email" required minlength="3" maxlength="30">
+                                <label for="name">Username:</label>
+                                <input type="text" class="form-control" name="username" id="username" placeholder="Enter your username" required minlength="3" maxlength="30">
                             </div>
                             <div class="form-row">
                                 <label for="name">Password</label>
-                                <input type="password" class="form-control" name="password" required placeholder="password">
+                                <input type="password" class="form-control" name="password" id="password" required placeholder="password">
                             </div>
-                                <a href="home.html"<button type="submit" class="btn btn-block btn-blue ripple">Sign In</button> </a>
+                            <a><button type="submit" class="btn btn-block btn-blue ripple" id="login">Sign In</button> </a>
                         </form>
                     </div>
                     <div class="other__option">
@@ -43,5 +44,6 @@
    </div>
 </div>
 <script src="./assets/js/main.js"></script>
+<script src="./assets/js/login.js"></script>
 </body>
 </html>
