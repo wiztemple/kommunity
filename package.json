@@ -33,6 +33,7 @@
   "homepage": "https://github.com/wiztemple/kommunity#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.4",
     "cross-env": "^5.2.0",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
