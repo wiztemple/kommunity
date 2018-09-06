@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Kommunity</title>
+  <link rel="icon" href="./assets/images/chatting.png" type="image/gif" sizes="16x16">
+  <link rel="stylesheet" href="./assets/css/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./assets/css/app.css">
+</head>
+<body>
+    <div class="app">
+        <div class="header" id="header">
+            <div class="navbar fixed-top" id="navbar">
+                <div class="shelter">
+                    <a class="navbar__nav nav__logo nav__underline" href="index.html">
+                    <span class="link-title"><i class="fa fa-mars"></i>
+                        <span>K</span>ommunity
+                    </span> 
+                    </a>
+                    <div class="navbar__nav navbar__nav-toggle">
+                        <i class="fa fa-bars"></i>
+                    </div>
+                    <nav class="nav__items">
+                        <div class="navbar__nav nav__underline">
+                            <a href="index.html" class="nav__link">
+                                Home
+                            </a>
+                            
+                        </div>
+                        <div class="navbar__nav nav__underline">
+                            <a href="answer.html" class="nav__link active">
+                                Answer
+                            </a>
+                            
+                        </div>
+                        <div class="navbar__nav nav__underline p__8">
+                        <div class="search">
+                            <input class="form-control" type="text" placeholder="Search for Questions">
+                        </div>
+                        </div>
+                        <div class="navbar__nav nav__underline p__8">
+                                <button type="button" class="btn btn-blue ripple" id="modalBtn">Ask a Question <i class="fa fa-plus"></i></button>
+                        </div>
+                    </nav>
+                    <nav class="nav__items nav__items-right">
+                        <div class="navbar__nav pr-0 p__8 dropdown">
+                            <a href="#"><img src="./assets/images/boy.png" class="avatar-sm" title="Profile"></a>
+                            <div class="dropdown-content">
+                                <a href="#">Log out <i class="fa fa-power-off"></i></a>
+                                <a href="profile.html">Profile <i class="fa fa-user-o"></i></a>
+                            </div>
+                        </div>
+                    </nav>
+                </div><!--end container-->
+            </div><!--end navbar-->
+        </div><!--end header-->
+        <section class="py-3">
+            <div class="shelter">
+                <div class="ddd">
+                    <div class="columns">
+                        <div class="col-2">
+                            <div class="left-side">
+                                <h1>Activity</h1>
+                                <div class="left-side__item active2">
+                                    <a class="side-link" href="question.html"><span class="pr-1"><i class="fa fa-pencil"></i></span> Questions</a>
+                                </div>
+                                <div class="left-side__item">
+                                    <a class="side-link" href="answer.html"><span class="pr-1"><i class="fa fa-book"></i></span> Answers</a>
+                                </div>
+                              
+                            </div>
+                        </div>
+                        <div class="col-7">
+                            <div class="card p-1 mt-2">
+                                <span><i class="fa fa-user-circle card-btn"></i> Could you answer any of these questions?</span>
+                            </div>
+                            <div class="card p-1">
+                                <div class="card-question">
+                                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, accusamus?</span>
+                                </div>
+                                <div class="justify-content-start">
+                                    <div class="card-user">
+                                        <img class="avatar" src="./assets/images/boy.png">
+                                    </div>
+                                    <div class="card-user__job flex">
+                                        <span class="pl-2">Lorem ipsum dolor sit amet.</span>
+                                        <span> 
+                                            <small class="text-grey">1 minute ago</small>
+                                            <small class="text-grey">07-08-2018</small>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card-description">
+                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, rem. Exercitationem libero quam esse ipsam quos rem ut nostrum aperiam?
+                                    <a href="#" class="card-description__link">Read more <i class="fa fa-angle-double-right"></i></a>
+                                    </p>
+                                </div>
+                                <div class="card-reaction justify-content-space-between">
+                                  <div class="card-answer">
+                                        <div class="text-grey mb-1">63 Answers <span><small>Posted 2 hrs ago.</small></span></div>
+                                        <div class="card-btn"> <i class="fa fa-edit"> Answer</i>
+                                        </div>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="card p-1">
+                                <div class="card-question">
+                                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, accusamus?</span>
+                                </div>
+                                <div class="justify-content-start">
+                                    <div class="card-user">
+                                        <img class="avatar" src="./assets/images/boy.png">
+                                    </div>
+                                    <div class="card-user__job flex">
+                                        <span class="pl-2">Lorem ipsum dolor sit amet.</span>
+                                        <span> 
+                                            <small class="text-grey">1 minute ago</small>
+                                            <small class="text-grey">07-08-2018</small>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card-description">
+                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, rem. Exercitationem libero quam esse ipsam quos rem ut nostrum aperiam?
+                                    <a href="#" class="card-description__link">Read more <i class="fa fa-angle-double-right"></i></a>
+                                    </p>
+                                </div>
+                                <div class="card-reaction justify-content-space-between">
+                                  <div class="card-answer">
+                                        <div class="text-grey mb-1">63 Answers <span><small>Posted 2 hrs ago.</small></span></div>
+                                        <div class="card-btn"> <i class="fa fa-edit"> Answer</i>
+                                        </div>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="card p-1">
+                                <div class="card-question">
+                                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, accusamus?</span>
+                                </div>
+                                <div class="justify-content-start">
+                                    <div class="card-user">
+                                        <img class="avatar" src="./assets/images/boy.png">
+                                    </div>
+                                    <div class="card-user__job flex">
+                                        <span class="pl-2">Lorem ipsum dolor sit amet.</span>
+                                        <span> 
+                                            <small class="text-grey">1 minute ago</small>
+                                            <small class="text-grey">07-08-2018</small>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card-description">
+                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, rem. Exercitationem libero quam esse ipsam quos rem ut nostrum aperiam?
+                                    <a href="#" class="card-description__link">Read more <i class="fa fa-angle-double-right"></i></a>
+                                    </p>
+                                </div>
+                                <div class="card-reaction justify-content-space-between">
+                                  <div class="card-answer">
+                                        <div class="text-grey mb-1">63 Answers <span><small>Posted 2 hrs ago.</small></span></div>
+                                        <div class="card-btn"> <i class="fa fa-edit"> Answer</i>
+                                        </div>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="card p-1">
+                                <div class="card-question">
+                                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, accusamus?</span>
+                                </div>
+                                <div class="justify-content-start">
+                                    <div class="card-user">
+                                        <img class="avatar" src="./assets/images/boy.png">
+                                    </div>
+                                    <div class="card-user__job flex">
+                                        <span class="pl-2">Lorem ipsum dolor sit amet.</span>
+                                        <span> 
+                                            <small class="text-grey">1 minute ago</small>
+                                            <small class="text-grey">07-08-2018</small>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card-description">
+                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, rem. Exercitationem libero quam esse ipsam quos rem ut nostrum aperiam?
+                                    <a href="#" class="card-description__link">Read more <i class="fa fa-angle-double-right"></i></a>
+                                    </p>
+                                </div>
+                                <div class="card-reaction justify-content-space-between">
+                                  <div class="card-answer">
+                                        <div class="text-grey mb-1">63 Answers <span><small>Posted 2 hrs ago.</small></span></div>
+                                        <div class="card-btn"> <i class="fa fa-edit"> Answer</i>
+                                        </div>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="card p-1">
+                                <div class="card-question">
+                                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, accusamus?</span>
+                                </div>
+                                <div class="justify-content-start">
+                                    <div class="card-user">
+                                        <img class="avatar" src="./assets/images/boy.png">
+                                    </div>
+                                    <div class="card-user__job flex">
+                                        <span class="pl-2">Lorem ipsum dolor sit amet.</span>
+                                        <span> 
+                                            <small class="text-grey">1 minute ago</small>
+                                            <small class="text-grey">07-08-2018</small>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card-description">
+                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, rem. Exercitationem libero quam esse ipsam quos rem ut nostrum aperiam?
+                                    <a href="#" class="card-description__link">Read more <i class="fa fa-angle-double-right"></i></a>
+                                    </p>
+                                </div>
+                                <div class="card-reaction justify-content-space-between">
+                                  <div class="card-answer">
+                                        <div class="text-grey mb-1">63 Answers <span><small>Posted 2 hrs ago.</small></span></div>
+                                        <div class="card-btn"> <i class="fa fa-edit"> Answer</i>
+                                        </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="shelter">
+                <div>
+                <div class="columns">
+                    <div class="col-4"></div>
+                    <div class="col-8">
+                            <div class="pagination">
+                                <a href="#">&laquo;</a>
+                                <a href="#">1</a>
+                                <a href="#" class="activve">2</a>
+                                <a href="#">3</a>
+                                <a href="#">4</a>
+                                <a href="#">5</a>
+                                <a href="#">6</a>
+                                <a href="#">7</a>
+                                <a href="#">8</a>
+                                <a href="#">9</a>
+                                <a href="#">10</a>
+                                <a href="#">&raquo;</a>
+                            </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="footer">
+                <p class="text-center">Ukaegbu Sullivan Wisdom...Cycle 35 &copy; 2018</p>
+            </div>
+        </section>
+    </div>
+    <section>
+        <div id="modal" class="modal">
+            <div>
+                <div class="columns">
+                    <div class="col-4"></div>
+                    <div class="col-4">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <span class="closeBtn">&times;</span>
+                                <h2 class="text-blue">Ask Question</h2>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-row">
+                                        <label for="name">Title</label>
+                                        <input type="text" class="form-control" placeholder="title">
+                                    </div>
+                                    <div class="form-row">
+                                        <label for="name">Question</label>
+                                        <textarea class="textarea" rows="4" cols="50" placeholder="your question's body">    
+                                        </textarea>
+                                    </div>
+                                </form>
+                            </div><!--end modal body-->
+                            <div class="modal-footer">
+                            <button class="btn ripple btn-colorless">Ask <i class="fa fa-question"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4"></div>
+                </div>  
+            </div>
+        </div>
+    </section>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/modal.js"></script>
+</body>
+</html>
