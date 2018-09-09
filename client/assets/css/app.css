@@ -667,16 +667,6 @@ label {
     border-left: 3px solid transparent;
     /* box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15); */
 }
-.card-drop {
-    display: none;
-    position: absolute;
-    top: 50px;
-    right: 0;
-    background: #fff;
-    box-shadow:0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
-    border-radius: 5px;
-    
-}
 .card-hide {
     height: 30px;
     width: 30px;
@@ -689,6 +679,18 @@ label {
 .card-hide > i{
 color: #777;
 }
+.card-drop {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    margin-top: 80px;
+    right: 0;
+    background: #fff;
+    box-shadow:0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
+    border-radius: 5px;
+    z-index: 1;
+}
+
 .card-drop > a {
     color: #777;
     display: block;
@@ -697,22 +699,14 @@ color: #777;
 .card-drop > a:hover {
     background-color: #0541fb;
     color: #fff;
-    transition: all ease-in 0.3s;
+    transition: all ease-in .5s;
     cursor: pointer;
 }
-/* .card-drop::before {
-    position: absolute;
-    right: 10px;
-    top: -10px;
-    background-color:#fff;
-    border-top: 1px solid #eee;
-    border-left: 1px solid #eee;
-    content: '';
-    width: 20px;
-    height: 20px;
-    transform: rotate(45deg);
-    z-index: -1;
-} */
+.card-hide:hover .card-drop {
+    display: block;
+    transition: all ease-out 1s;
+  }
+
 .card:hover{
     border-left-color: #0541fb;
 }
@@ -746,8 +740,9 @@ color: #777;
     transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 .card-question {
+    position: relative;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
 }
 
 .card-question > a {
@@ -795,9 +790,9 @@ color: #777;
     color: #616770;
     border-radius: 10px;
 }
-.img-circle {
+/* .img-circle {
    
-}
+} */
 /* .answer-count {
     border-bottom: 1px solid #bbb;
 } */
@@ -1048,15 +1043,6 @@ border-radius: 50%;
 }
 .instagram {
     color: #e4405f;
-    padding: 15px;
-    height:60px;
-    width:60px;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
-}
-.wechat {
-    color:#09b83e;
     padding: 15px;
     height:60px;
     width:60px;
