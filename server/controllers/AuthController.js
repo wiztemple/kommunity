@@ -1,4 +1,6 @@
-import { createUserAccount, checkUser, findUser } from '../models/query';
+import {
+  createUserAccount, checkUser, findUser, findById, fetchAllUsers
+} from '../models/query';
 import db from '../models/connection';
 import PasswordUtility from '../helpers/passwordUtility';
 import jwtSign from '../helpers/jwt';
@@ -33,7 +35,7 @@ export default class AuthController {
         message: 'Internal Server Error',
       });
     }
-    const token = jwtSign({ id: createUser.rows[0].id, email: createUser.rows[0].email }, process.env.JWT_SECRET,
+    const token = jwtSign({ id: createUser.rows[0].id, username: createUser.rows[0].username }, process.env.JWT_SECRET,
       { expiresIn: 86400 });
     const data = { token, username: createUser.rows[0].username, email: createUser.rows[0].email };
     return response.status(201).json({
@@ -59,13 +61,74 @@ export default class AuthController {
         message: 'password mismatch',
       });
     }
-    const token = jwtSign({ id: fetchUser.rows[0].id, email: fetchUser.rows[0].email }, process.env.JWT_SECRET,
+    const token = jwtSign({ id: fetchUser.rows[0].id, username: fetchUser.rows[0].username }, process.env.JWT_SECRET,
       { expiresIn: 86400 });
     const data = { token, username: fetchUser.rows[0].username, email: fetchUser.rows[0].email };
     return response.status(200).json({
       status: 'success',
       message: 'login successful',
       data,
+    });
+  }
+
+  /**
+ * @method getAllUsers
+ * @static
+ * @description This returns all users
+ * @param {object} request request object
+ * @param {object} response response object
+ * @returns {Object} Object
+ */
+  static async getAllUsers(request, response) {
+    try {
+      const allUsers = await db.query(fetchAllUsers());
+      if (allUsers.rowCount === 0) {
+        return response.status(404).json({
+          status: 'fail',
+          message: 'no user found',
+        });
+      }
+      return response.status(200).json({
+        status: 'success',
+        message: 'users',
+        users: allUsers.rows,
+      });
+    } catch (error) {
+      return response.status(500).json({
+        status: 'fail',
+        message: 'Internal Server Error',
+      });
+    }
+  }
+
+  /**
+ * @method userProfile
+ * @static
+ * @description This returns a user profile
+ * @param {object} request request object
+ * @param {object} response response object
+ * @returns {Object} Object
+ */
+  static async userProfile(request, response) {
+    const { userId } = request.params;
+    const parsedId = parseInt(userId, 10);
+    if (Number.isNaN(parsedId) === true) {
+      return response.status(400).json({
+        status: 'fail',
+        message: 'user id must be a number',
+      });
+    }
+    const foundUser = await db.query(findById(parsedId));
+    if (foundUser.rowCount === 0) {
+      return response.status(404).json({
+        status: 'fail',
+        message: 'user not found'
+      });
+    }
+    return response.status(200).json({
+      status: 'success',
+      message: 'user returned successfully',
+      user: foundUser.rows,
     });
   }
 }

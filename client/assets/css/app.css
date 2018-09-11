@@ -518,7 +518,6 @@ blockquote {
 .right-card {
     padding: 1rem;
     background-color: #fff;
-    /* box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4); */
     border-radius: 5px;
 }
 .right-card > span {
@@ -665,7 +664,7 @@ label {
     border-radius: 3px;
     margin-top: 10px;
     border-left: 3px solid transparent;
-    /* box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15); */
+    /* box-shadow: 0 0.5px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3; */
 }
 .card-hide {
     height: 30px;
@@ -760,11 +759,14 @@ color: #777;
     color:#0541fb;
 }
 .carded {
+    position: relative;
     color: #0541fb;
     font-size: 18px;
+    width:100%;
     background-color: #fff;
     border-radius: 5px;
 }
+
 .form-card {
     padding: 1rem;
     background-color: #ffff;

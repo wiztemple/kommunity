@@ -66,7 +66,6 @@ export default class QuestionController {
       status: 'success',
       message: 'question returned successfully',
       data: result,
-
     });
   }
 
@@ -81,6 +80,7 @@ export default class QuestionController {
   static async postQuestion(request, response) {
     try {
       const userId = request.userId.id;
+      const user = request.userId.username;
       const {
         title, questionBody, tag,
       } = request.body;
@@ -92,7 +92,7 @@ export default class QuestionController {
         });
       }
       const question = {
-        title, questionBody, userId, tag,
+        title, questionBody, user, userId, tag,
       };
       const askQuestion = await db.query(createQuestion(question));
       if (askQuestion.rowCount > 0) {
@@ -102,6 +102,7 @@ export default class QuestionController {
           questionBody: askQuestion.rows[0].question_body,
           tag: askQuestion.rows[0].tag,
           userId: askQuestion.rows[0].user_id,
+          user
         };
         return response.status(201).json({
           status: 'success',
@@ -118,9 +119,9 @@ export default class QuestionController {
   }
 
   /**
- * @method postQuestion
+ * @method deleteQuestion
  * @static
- * @description This handles user question creation
+ * @description This handles user question deletion
  * @param {object} request request object
  * @param {object} response response object
  * @returns {Object} Object
