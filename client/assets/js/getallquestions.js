@@ -7,6 +7,7 @@ document.onreadystatechange = async function getAll() {
     const result = await response.json();
     if (result.status === 'success') {
       const questionsCard = document.getElementById('questionCard');
+      const token = localStorage.getItem('token');
       const allQuestions = result.questions;
       console.log(allQuestions);
       allQuestions.forEach((question) => {
@@ -30,7 +31,7 @@ document.onreadystatechange = async function getAll() {
                     <img class="avatar" src="./assets/images/alarm-clock.png">
                 </div>
                 <div class="card-user__job flex">
-                    <span class="pl-2">Lorem ipsum dolor sit amet.</span>
+                    <span class="pl-2">${question.user}</span>
                     <span> 
                         <small class="text-grey">1 minute ago</small>
                         <small class="text-grey">${dayCreated.slice(0, 2)}-${monthCreated.slice(0, 2)}-${yearCreated.slice(0, 4)}</small>

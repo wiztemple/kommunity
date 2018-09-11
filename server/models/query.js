@@ -13,6 +13,7 @@ export const checkUser = (username, email) => `
 SELECT * FROM users 
 WHERE username = '${username}' or email = '${email}'
 `;
+export const fetchAllUsers = () => ('SELECT * from users');
 
 export const findById = userId => `SELECT * FROM users WHERE id = ${userId}`;
 
@@ -31,7 +32,7 @@ export const createQuestion = requestBody => (`
 INSERT INTO questions 
 (user_id, title, question_body, tag)
 VALUES
-(${requestBody.userId}, '${requestBody.title}', '${requestBody.questionBody}', '${requestBody.tag}')
+(${requestBody.userId}, '${requestBody.title}', '${requestBody.questionBody}', '${requestBody.tag}') 
 RETURNING *
 `);
 /**

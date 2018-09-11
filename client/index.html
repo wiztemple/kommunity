@@ -175,21 +175,24 @@
                             <h2 class="text-blue">Ask Question</h2>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <form id="postQuestion">
                                 <div class="form-row">
-                                    <label for="name">Title</label>
-                                    <input type="text" class="form-control" placeholder="title">
+                                    <label for="title">Title</label>
+                                    <input type="text" class="form-control" id="title" placeholder="title">
                                 </div>
                                 <div class="form-row">
                                     <label for="name">Question</label>
-                                    <textarea class="textarea" rows="4" cols="50" placeholder="your question's body">    
+                                    <textarea class="textarea" id="questionBody" rows="4" cols="50" placeholder="your question's body">    
                                     </textarea>
+                                </div>
+                                <div class="form-row">
+                                    <input type="text" class="form-control" id="tag" placeholder="tag">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn ripple btn-colorless" id="askBtn">Ask <i class="fa fa-question"></i></button>
                                 </div>
                             </form>
                         </div><!--end modal body-->
-                        <div class="modal-footer">
-                        <button class="btn ripple btn-colorless">Ask <i class="fa fa-question"></i></button>
-                        </div>
                     </div>
                 </div>
                 <div class="col-4"></div>
@@ -197,9 +200,9 @@
         </div>
     </div>
 </section>
-
-<script src="./assets/js/main.js"></script>
 <script src="./assets/js/modal.js"></script>
+<script src="./assets/js/postQuestion.js"></script>
 <script src="./assets/js/getallquestions.js"></script>
+<script src="./assets/js/main.js"></script>
 </body>
 </html>
