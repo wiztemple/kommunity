@@ -110,7 +110,7 @@ export default class AuthController {
  * @returns {Object} Object
  */
   static async userProfile(request, response) {
-    const { userId } = request.params;
+    const userId = request.userId.id;
     const parsedId = parseInt(userId, 10);
     if (Number.isNaN(parsedId) === true) {
       return response.status(400).json({
@@ -128,7 +128,7 @@ export default class AuthController {
     return response.status(200).json({
       status: 'success',
       message: 'user returned successfully',
-      user: foundUser.rows,
+      user: foundUser.rows[0],
     });
   }
 }

@@ -2,7 +2,6 @@ import { Router } from 'express';
 import QuestionController from '../controllers/QuestionController';
 import AnswerController from '../controllers/AnswerController';
 import CommentController from '../controllers/CommentControllers';
-
 import verifyToken from '../middleware/verifyToken';
 import ValidateData from '../middleware/validateData';
 

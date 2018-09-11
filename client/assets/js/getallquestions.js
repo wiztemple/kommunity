@@ -7,9 +7,7 @@ document.onreadystatechange = async function getAll() {
     const result = await response.json();
     if (result.status === 'success') {
       const questionsCard = document.getElementById('questionCard');
-      const token = localStorage.getItem('token');
       const allQuestions = result.questions;
-      console.log(allQuestions);
       allQuestions.forEach((question) => {
         const [yearCreated, monthCreated, dayCreated] = question.created_at.split('-');
         questionsCard.innerHTML += `
