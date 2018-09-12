@@ -47,7 +47,7 @@ document.onreadystatechange = async function getAll() {
                     </div>
                 </div>
                 <div class="card-answer ml-2">
-                    <div class="card-btn"><span>63 Answers</span> <i class="fa fa-pencil"></i>
+                    <div class="card-btn"><span>0 Answers</span> <i class="fa fa-pencil"></i>
                     </div>
                 </div>
                 <div class="card-tag ml-2">
