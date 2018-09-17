@@ -128,8 +128,14 @@
         </section>
     </div>
     <script src="./assets/js/main.js"></script>
-    <script src="./assets/js/modal.js"></script>
-    <script src="./assets/js/profile.js"></script>
-    <script src="./assets/js/logout.js"></script>
+<script>
+   window.onload = () => {
+       app.navToggle();
+       app.openModal();
+       app.closeModal();
+       app.userProfile();
+       app.logout();
+   }
+</script>
 </body>
 </html>

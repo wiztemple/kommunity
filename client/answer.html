@@ -59,37 +59,51 @@
         </div><!--end header-->
         <section class="py-3">
             <div class="shelter">
-                <div class="ddd mt-2">
+                <div class="mt-2">
                     <div class="columns">
-                        <div class="col-7">
+                        <div class="col-7" id="singleCard">
                             <div class="card p-1">
                                 <div class="card-question">
-                                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, accusamus?</span>
+                                    <a href="answer.html?${question.id}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, laboriosam?</a>
+                                    <div class="card-hide">
+                                        <i class="fa fa-ellipsis-h"></i>
+                                        <div class="card-drop">
+                                        <a class="editQUestion" id="editQUestion"><i class="fa fa-pencil"></i> Edit Question</a>
+                                        <a class=""><i class="fa fa-times"></i> Delete Question</a>
+                                        <a class=""><i class="fa fa-map-pin"></i> Pin Question</a>
+                                        <a class=""><i class="fa fa-share"></i> Share Question</a>
+                                    </div>
+                                    </div>
                                 </div>
                                 <div class="justify-content-start">
                                     <div class="card-user">
-                                        <img class="avatar" src="./assets/images/girl.png">
+                                        <img class="avatar" src="./assets/images/alarm-clock.png">
                                     </div>
                                     <div class="card-user__job flex">
-                                        <span class="pl-2">Lorem ipsum dolor sit amet.</span>
+                                        <span class="pl-2">Wiztemple</span>
                                         <span> 
                                             <small class="text-grey">1 minute ago</small>
-                                            <small class="text-grey">07-08-2018</small>
+                                            <small class="text-grey">9-12-2018</small>
                                         </span>
                                     </div>
                                 </div>
                                 <div class="card-description">
-                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, rem. Exercitationem libero quam esse ipsam quos rem ut nostrum aperiam?
-                                    <a href="#" class="card-description__link">Read more <i class="fa fa-angle-double-right"></i></a>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut maxime maiores, tempore ducimus fuga corporis minus, rem distinctio praesentium accusamus officia voluptate sed voluptatum a saepe blanditiis quos similique quaerat?
                                     </p>
                                 </div>
                                 <div class="card-reaction justify-content-space-between">
-                                  <div class="card-answer">
-                                        <div class="text-grey mb-1">63 Answers <span><small>Posted 2 hrs ago.</small></span></div>
-                                        <div class="card-btn ripple" id="cardBtn" title="Click to answer"> <i class="fa fa-pencil"></i>Answer 
+                                    <div class="card-views">
+                                        <div class="card-btn"><span>63</span> <i class="fa fa-eye"></i>
                                         </div>
-                                        
-                                  </div>
+                                    </div>
+                                    <div class="card-answer ml-2">
+                                        <div class="card-btn" id="cardBtn" title="Click to answer"><span>0 Answers</span> <i class="fa fa-pencil"></i>
+                                        </div>
+                                    </div>
+                                    <div class="card-tag ml-2">
+                                        <div class="card-btn"><span>JS</span>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="answer-box" id="answerBox">
                                     <div class="justify-content-start">
@@ -277,9 +291,18 @@
             </div>
         </section>
     </div>
-    <script src="./assets/js/main.js"></script>
-    <script src="./assets/js/dropdown.js"></script>
-    <script src="./assets/js/modal.js"></script>
-    <script src="./assets/js/logout.js"></script>
+   <script src="./assets/js/main.js"></script>
+    <script>
+    window.onload = () => {
+        app.navToggle();
+        app.openModal();
+        app.closeModal();
+        app.postQuestion();
+        app.dropAnswerBox();
+        app.dropCommentBox();
+        app.getSingleQuestion();
+        app.logout();
+    }
+    </script>
 </body>
 </html>

@@ -175,7 +175,13 @@
         </div>
     </section>
     <script src="./assets/js/main.js"></script>
-    <script src="./assets/js/modal.js"></script>
-    <script src="./assets/js/getallquestions.js"></script>
+    <script>
+    window.onload = () => {
+        app.navToggle();
+        app.openModal();
+        app.closeModal();
+        app.getAll();
+    }
+    </script>
 </body>
 </html>

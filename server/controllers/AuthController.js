@@ -63,7 +63,7 @@ export default class AuthController {
     }
     const token = jwtSign({ id: fetchUser.rows[0].id, username: fetchUser.rows[0].username }, process.env.JWT_SECRET,
       { expiresIn: 86400 });
-    const data = { token, username: fetchUser.rows[0].username, email: fetchUser.rows[0].email };
+    const data = { id: fetchUser.rows[0].id, token, username: fetchUser.rows[0].username, email: fetchUser.rows[0].email };
     return response.status(200).json({
       status: 'success',
       message: 'login successful',
