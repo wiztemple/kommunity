@@ -60,7 +60,7 @@ export default class QuestionController {
       });
     }
     const questionAnswers = await db.query(findAnswersByQuestionId(parsedId));
-    result.question = fetchedQuestion.rows[0];
+    result.question = fetchedQuestion.rows;
     result.answers = questionAnswers.rows;
     return response.status(200).json({
       status: 'success',
