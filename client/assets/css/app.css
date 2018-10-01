@@ -586,24 +586,27 @@ textarea {
     border-radius: 4px;
     background-color: #f8f8f8;
 }
-#answerBox {
+/* #answerBox {
     display: none;
     
 }
 #commentBox {
     display: none;
-}
+} */
 .answer-box {
     background-color: #fff;
-    margin-top: 1rem;
-    padding: 1rem;
+    margin-top: .5rem;
+    padding: .5rem;
+    border-right: 2px solid blue;
 
 }
 .comment-box {
     margin-left: 5rem;
     background-color: #fff;
-    margin-top: 1rem;
-    padding: 1rem;  
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid #EEE;
+    border-radius: 5px;
 }
 .comment-content {
     margin-top: 15px;
@@ -800,16 +803,19 @@ color: #777;
 /* .answer-block {
     border-bottom: 1px solid #bbb; 
 } */
-.answer-text {
+.answer-bg {
     position: relative;
     margin: 10px 0;
     padding: 10px;
-    color:#616770;
-    background-color: #f8f8f8;
-    line-height: 20px;
-    font-weight: 100;
+    background: #fff;
     border-top-left-radius: 30px;
     border-bottom-right-radius: 30px;
+}
+.answer-text {
+    color:#616770;
+    line-height: 20px;
+    font-weight: 100; 
+    
 }
 
 .card__shadow{
@@ -822,8 +828,8 @@ color: #777;
              /* 0 0.5px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3; */
 }
 .avatar {
-height: 50px;
-width: 50px;
+height: 40px;
+width: 40px;
 border-radius: 50%;
 }
 /*pagination*/
