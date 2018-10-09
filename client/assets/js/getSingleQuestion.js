@@ -64,10 +64,10 @@ const getSingleQuestion = async () => {
                         <img src="./assets/images/girl.png" class="avatar">
                     </div>
                     <div class="ml-1 answer-input">
-                        <form class="answerForm" id="answerBody">
-                          <textarea class="box" placeholder="Answer"></textarea>
+                        <form class="answerForm" >
+                          <textarea class="box" placeholder="Answer" id="answerBody" required></textarea>
+                          <button class="button ripple" id="answerBtn" onclick="postAnswer(); return false">Post</button>
                         </form>
-                        <button class="button ripple answerBtn" type="submit">Post</button>
                     </div>
                 </div>
             </div> 

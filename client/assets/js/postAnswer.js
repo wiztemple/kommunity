@@ -1,21 +1,21 @@
 const answerForm = document.getElementById('answerForm');
-const postAnswer = async (e) => {
-  e.preventDefault();
+async function postAnswer() {
   try {
-    const answerBody = document.querySelector('.answer-text').value;
+    const answerBody = document.getElementById('answerBody').value;
     const token = localStorage.getItem('token');
-    const answer = document.querySelector('.answerBtn');
-    answer.disabled = true;
-    answer.innerHTML = 'Posting .....';
+    // const answer = document.getElementById('answerBtn');
+    // answer.disabled = true;
+    // answer.innerHTML = 'Posting .....';
     const questionId = window.location.search.split('')[1];
+    console.log(location.search);
     console.log(questionId);
-    const answerUrl = `/api/v1/${questionId}/answer`;
+    const answerUrl = `/api/v1/question/${questionId}/answer`;
     const header = {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`
     };
     const requestBody = {
-      answerBody
+      answerBody,
     };
     const response = await fetch(answerUrl, {
       method: 'POST',
@@ -23,18 +23,20 @@ const postAnswer = async (e) => {
       body: JSON.stringify(requestBody)
     });
     const result = await response.json();
+    console.log(result.status);
     if (result.status === 'success') {
+      console.log(result.status);
       window.location.reload(true);
     } else {
       // eslint-disable-next-line
-          alert(result.message);
+    console.log(result.status);
       setTimeout(() => {
-        window.location.href = 'answer.html';
+        // window.location.href = 'answer.html';
       }, 500);
     }
   } catch (error) {
     // eslint-disable-next-line
     console.log(error.message);
   }
-};
-window.onload = answerForm.addEventListener('submit', postAnswer);
+}
+// answerForm.addEventListener('submit', postAnswer);
